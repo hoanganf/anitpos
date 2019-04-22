@@ -1,0 +1,93 @@
+var websocketID = "udmartpos",
+websocketClient = null,
+wsUsername = null,
+wsPassword = null;
+
+//Method is called when the page is loaded
+function initPage() {
+	sessionStorage.curIndex = 0;
+	// check if WebSockets are supported by the browser
+	if( jws.browserSupportsWebSockets() ) {
+		console.log("Websockets are supported");
+		// instaniate new TokenClient, either JSON, CSV or XML
+		websocketClient = new jws.jWebSocketJSONClient();
+		websocketClient.setReliabilityOptions(jws.RO_ON);
+		logon();//call the logon Method
+	} else {
+		console.log("Websockets are NOT supported");
+	}
+}
+function exitPage() {
+	// this allows the server to release the current session
+	// immediately w/o waiting on the timeout.
+	if( websocketClient ) {
+		websocketClient.close({
+			// force immediate client side disconnect
+			timeout: 0
+		});
+	}
+}
+//Method is called when the user clicks the "check" button
+//function finished(user_id, table_name, zone, food_name){
+//	console.log(user_id+" "+table_name+" "+zone+" "+food_name);
+//	//websocketClient.onFinished(myOrder);//call the order method from LauridsClientPlugIn.js
+//}
+
+function logon() {
+	var wsURL = jws.getDefaultServerURL();// get the default server url
+	//wsURL="ws://sdc.eduportal.vn:8787/jWebSocket/jWebSocket";
+	console.log("Connecting to " + websocketID + " at " + wsURL + "..." );
+
+	//get the guest username and password
+    wsUsername=jws.GUEST_USER_LOGINNAME;
+    wsPassword=jws.GUEST_USER_PASSWORD;
+
+	// try to establish the connection to jWebSocket server
+	websocketClient.logon( wsURL, wsUsername, wsPassword, {
+		// connection timeout in ms
+		openTimeout: 3000,
+		
+		// OnReconnecting callback
+		OnReconnecting: function( aEvent ) {
+			console.log( "Re-establishing jWebSocket connection..." );
+		},
+		
+		OnOpen: function( aEvent ) {
+			
+			console.log("Connection to " + websocketID + " established." );
+		},
+		// OnMessage callback
+		OnMessage: function( aEvent, aToken ) {
+			//console.log(( aToken ? aToken.type : "-" ) + ": " +	aEvent.data);
+
+			if( websocketClient.isLoggedIn() ) {
+				console.log("User is authenticated");
+			} else {
+				console.log("User is connected");
+			}
+			console.log(websocketClient.getId() + "&nbsp;"	+ ( jws.browserSupportsNativeWebSockets ? "(native)" : "(flashbridge)" ));
+			if( aToken ) {
+				// is it a response from a previous request of this client?
+				if( aToken.type == "response" ) {
+					if( aToken.reqType == "login" ) {// figure out of which request
+						if( aToken.code == 0 ) {
+							console.log("Welcome '" + aToken.username + "'" );
+							$('#status').attr("src","images/connected.png");
+						}else {
+							console.log("Error logging in '" + eUsername.value + "': " + aToken.msg );
+						}
+					}
+				// is it an event w/o a previous request ?
+				}else if( aToken.type == "goodBye" ) {
+					console.log("good bye (reason: " + aToken.reason + ")!" );
+				}
+			}
+		},
+		// OnClose callback
+		OnClose: function( aEvent ) {
+			$('#status').attr("src","images/disconnected.png");
+			console.log("Disconnected from " + websocketID + ".");
+		}
+
+	});
+}

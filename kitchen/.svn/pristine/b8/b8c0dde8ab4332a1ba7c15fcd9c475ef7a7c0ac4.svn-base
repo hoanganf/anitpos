@@ -1,0 +1,190 @@
+ <?php 
+	
+	
+	function connectdb(){
+		mysql_connect("localhost","root","") or die ("Could not connect to MySQL Database");
+		mysql_select_db("udsmartpos") or die ("Could not connect to MySQL Table");;
+		mysql_query("SET NAMES 'utf8'");
+	}
+	
+	function  getCommentCategories(){
+		connectdb();
+		$result = mysql_query("SELECT * FROM comment_categories");
+		$comments = array();
+		while($row = mysql_fetch_array($result)){
+			$comments[$row['id']] = $row['name'];
+		}
+		return $comments;
+	}
+	
+	function GetOrdersByTime(){
+	// No Image Available
+	$noImage = "no_image_available.png";
+	
+	connectdb();
+	$result = mysql_query("SELECT
+	orders.bill_id,	orders.food_id,	orders.count, orders.id, orders.comments, bills.table_id AS tableId, user_id,
+	foods.`name` AS food_name, `tables`.`merge_with_string` AS table_name, areas.name AS zone, orders.status,
+	food_units.name AS food_unit,
+	(SELECT food_pics.image_name FROM food_pics WHERE food_pics.food_id = foods.id ORDER BY food_pics.food_id LIMIT 1) AS food_image
+	
+	FROM bills
+	INNER JOIN orders ON orders.bill_id = bills.id AND bills.is_paid = 0
+	INNER JOIN users ON bills.user_id = users.id
+	INNER JOIN `tables` ON bills.table_id = `tables`.id
+	INNER JOIN `areas` ON areas.id = `tables`.area_id
+	INNER JOIN foods ON orders.food_id = foods.id
+	INNER JOIN food_units ON foods.food_unit_id = food_units.id
+	
+	WHERE orders.status < 2 
+	ORDER BY orders.id ASC
+	");
+
+	
+	$orders = array();
+	
+	$tableName = "";
+	$foodName = "";
+	$tableCount = -1;
+	$foodCount = -1;
+		
+		//Get data by row
+		while($row = mysql_fetch_array($result)){
+			if($row['food_image'] == null) $row['food_image'] = $noImage;
+			
+			if($tableName == $row['table_name']){
+				if($foodName == $row['food_name']){
+					$orders[$tableCount][3][$foodCount][3] +=  $row['count'];
+					if($row['comments'] != null)
+						$orders[$tableCount][3][$foodCount][5] .= $row['comments'];
+				}else{
+					$foodCount++;
+					$arrayDetail = array();
+						array_push($arrayDetail,$row['food_id']);
+						array_push($arrayDetail,$row['food_name']);
+						array_push($arrayDetail,$row['food_image']);
+						array_push($arrayDetail,$row['count']);
+						array_push($arrayDetail,$row['status']);
+						if($row['comments'] != null) 
+							array_push($arrayDetail,$row['comments']);
+						array_push($arrayDetail,$row['food_unit']);
+					array_push($orders[$tableCount][3],$arrayDetail);
+				}
+				
+				
+				$ok = true;
+				
+				for($ind = 0; $ind < count($orders[$tableCount][3])-1; $ind++){ // Duyet lai danh sach food
+					if($orders[$tableCount][3][$ind][1] == $row['food_name']){ // Neu co cung food trong ban
+					
+						$orders[$tableCount][3][$ind][3] +=  $row['count'];    // thi cong don so luong
+						if($row['comments'] != null)
+							$orders[$tableCount][3][$ind][5] .= $row['comments']; // ghep chung comment
+							
+						unset($orders[$tableCount][3][$foodCount]);
+						$orders[$tableCount][3] = array_values($orders[$tableCount][3]);
+						$foodCount--;
+						$ok = false; // Thoat vong lap vi ko co du lieu trung nhau
+						break;
+					}
+				}
+				
+			}else{
+				$item = array();
+					$arrayFood = array();
+						$arrayDetail = array();
+						array_push($arrayDetail,$row['food_id']);
+						array_push($arrayDetail,$row['food_name']);
+						array_push($arrayDetail,$row['food_image']);
+						array_push($arrayDetail,$row['count']);
+						array_push($arrayDetail,$row['status']);
+						if($row['comments'] != null) 
+							array_push($arrayDetail,$row['comments']);
+						array_push($arrayDetail,$row['food_unit']);
+					array_push($arrayFood,$arrayDetail);
+					
+				array_push($item,$row['user_id']);
+				array_push($item,$row['bill_id']);
+				array_push($item,$row['table_name']);
+				array_push($item,$arrayFood);
+				array_push($item,$row['zone']);
+				array_push($item,$row['tableId']);
+				array_push($orders,$item);
+				$tableCount++;
+				$foodCount = 0;
+			}
+			$tableName = $row['table_name'];
+			$foodName = $row['food_name'];
+		}	
+	
+	mysql_close();
+	return $orders;
+}
+
+	function GetOrdersByFood($food_type){
+	// No Image Available
+	$noImage = "no_image_available.png";
+	
+	connectdb();
+	$result = mysql_query("SELECT
+		orders.food_id,	foods.`name` AS food_name, orders.count AS food_count, 
+		orders.comments AS food_comment, user_id, orders.status AS food_status,
+		(SELECT food_pics.image_name FROM food_pics WHERE food_pics.food_id = foods.id ORDER BY food_pics.food_id LIMIT 1) AS food_image,
+		food_types.id AS type_id, food_types.`name` AS type_name, food_units.name AS food_unit
+		
+		FROM bills
+		INNER JOIN orders ON orders.bill_id = bills.id AND bills.is_paid = 0
+		INNER JOIN users ON bills.user_id = users.id
+		INNER JOIN foods ON orders.food_id = foods.id
+		INNER JOIN food_units ON foods.food_unit_id = food_units.id
+		INNER JOIN food_categories ON food_categories.id = foods.food_category_id
+		INNER JOIN food_types ON food_categories.food_type_id = food_types.id AND food_types.id =".$food_type."
+
+		
+		WHERE orders.status < 2
+		ORDER BY foods.id ASC
+	");
+
+	
+	$orders = array();
+	
+	$food_id = "";
+	$food_status = 0;
+	$count = -1;
+	
+		
+		//Get data by row
+		while($row = mysql_fetch_array($result)){
+			if($row['food_image'] == null) $row['food_image'] = $noImage;
+			
+			if($food_id == $row['food_id']){
+				$orders[$count]['food_count'] += $row['food_count'];
+				if($row['food_comment'] != null)
+					$orders[$count]['food_comment'] .= $row['food_comment'];
+				if($food_status != $row['food_status']){
+					$orders[$count]['food_status'] = 99;
+				}
+			}else{
+				
+				$item = array();
+				$item['food_id'] = $row['food_id'];
+				$item['food_count'] = $row['food_count'];
+				$item['food_name'] = $row['food_name'];
+				$item['food_image'] = $row['food_image'];
+				if($row['food_comment'] != null)
+					$item['food_comment'] = $row['food_comment'];
+				$item['food_status'] = $row['food_status'];
+				$item['user_id'] = $row['user_id'];
+				$item['type_id'] = $row['type_id'];
+				$item['type_name'] = $row['type_name'];
+				$item['food_unit'] = $row['food_unit'];
+				array_push($orders,$item);
+				$count++;
+				$food_id = $row['food_id'];
+				$food_status =  $row['food_status'];
+			}
+		}	
+	
+	mysql_close();
+	return $orders;
+}

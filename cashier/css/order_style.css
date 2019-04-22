@@ -1,0 +1,15 @@
+#order_center_list{
+  -webkit-flex: 1fr; /* Safari 6.1+ */
+  -ms-flex: 1fr; /* IE 10 */
+  flex: 1fr;
+}
+#order_bottom_list{
+  padding-top: 5px;
+  -webkit-flex: 1fr; /* Safari 6.1+ */
+  -ms-flex: 1fr; /* IE 10 */
+  flex: 1fr;
+}
+/*title*/
+#category_menu >*.active {
+  background-color: #3d3d3d;
+}

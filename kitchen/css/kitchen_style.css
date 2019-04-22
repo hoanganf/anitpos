@@ -1,0 +1,77 @@
+body{
+  padding:0;
+  margin:0;
+  background-color: #eeeef3;
+}
+.title_bar {
+ 	  position: relative;
+    background-color: #333;
+    box-shadow:0 2px 2px 0 grey;
+    height:41px;
+	  line-height:41px;
+    text-align:center;
+    color:#7bdc7f;
+}
+
+#status {
+    position:absolute;
+    left:5px;
+    top:0;
+    bottom:0;
+    margin-top:auto;
+    margin-bottom:auto;
+    display: block;
+    border:solid 1px white;
+    border-radius: 50%;
+    width:16px;
+    height:16px;
+    background-color:red;
+}
+
+#sort:hover {
+    background-color: #111;
+    cursor:pointer;
+}
+
+#active {
+    background-color: #4CAF50;
+}
+#sort{
+    position: absolute;
+    display: block;
+    color: white;
+    text-align: center;
+    width:150px;
+    height:41px;
+    border-left:1px solid #bbb;
+    top: 0;
+    right:0;
+}
+.grid-container {
+  display: grid;
+  align-content: start;
+  grid-template-columns: repeat( auto-fill, minmax(150px, 1fr) );
+  grid-gap: 5px;
+}
+.grid-container > div {
+  background-color: #555555;
+  text-align: justify;
+  min-height: 120px;
+  min-width: 120px;
+}
+
+.grid-container > div:hover {
+    background-color: #3d3d3d;
+    cursor:pointer;
+}
+[class^="order_"] {
+    line-height: normal;
+    border-bottom: dashed 1px white;
+    padding: 2px;
+}
+.special{
+    color:#feff8c;
+}
+.order_comment{
+    border:none;
+}

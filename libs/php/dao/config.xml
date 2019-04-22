@@ -1,0 +1,13 @@
+<local>
+  <host>localhost</host>;
+  <user_name>root</user_name>;
+  <password/>
+  <database_name>anit_pos</database_name>;
+</local>
+<server>
+  <host>localhost</host>;
+  <user_name>root</user_name>;
+  <password/>
+  <database_name>anit_pos_server</database_name>;
+</server>
+<res_id>1</res_id>
