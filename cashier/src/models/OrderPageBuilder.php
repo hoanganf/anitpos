@@ -17,8 +17,9 @@
 				$resource->cateId=$resource->categories[0]['id'];
 				$resource->products=$adapter->getProducts($resource->cateId,true);
 
-				$adapter=new ProductCommentDAO();
-				$resource->productComments=$adapter->getProductComments(true);
+				/*$adapter=new ProductCommentDAO();
+				$resource->productComments=$adapter->getProductComments(true);*/
+				$resource->productComments=array();
 			}else{
 				$resource->products=array();
 				$resource->productComments=array();

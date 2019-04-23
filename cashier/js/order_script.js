@@ -1,12 +1,10 @@
-
-function submitOrder(isCheckout=false,numberId=-1,mode="new"){
+var orderedListTableCurIndex=-1;
+function submitOrder(isCheckout=false,numberId=-1){
   var table = document.getElementById("ordered_list_table");
   var rows=table.rows;
   var rowCount=rows.length;
   var action="order";//new setting
-  if( mode==="edit"){
-    action="editOrder&numberId="+numberId;
-  }else if(rowCount<2){
+  if(rowCount<2){
     alert("Vui long chon mon!");
     return;
   }
@@ -26,10 +24,6 @@ function submitOrder(isCheckout=false,numberId=-1,mode="new"){
     }
     if(row.cells[0].childNodes.length>1){
       commentTmp=row.cells[0].childNodes[1].innerHTML;
-    }
-    if(mode==="edit"){
-      idTmp=row.hasAttribute("data-id") ? row.getAttribute("data-id") : -1;
-      commandTmp=row.hasAttribute("data-command") ? row.getAttribute("data-command") : 0;
     }
     var order={
       id : idTmp,
@@ -108,11 +102,7 @@ function onOrderProductClick(id,name,count,price,status,comment){
   cell1.style.width="100%";
   cellMoney.style.whiteSpace="nowrap";
   cellMoney.classList.add("right");
-  span.style.color="white";
-  span.style.whiteSpace="nowrap";
-  span.style.borderRadius="5px";
-  span.style.backgroundColor="#FFD300";
-  span.style.padding="5px";
+  $(span).addClass("rounded background-color--yellow padding");
   span.innerHTML=formatCurrency(price);
   cellMoney.appendChild(span);
   cell2.innerHTML = '<img width="24px" height="24px" src="./images/ic_add.png" alt="Them">';
@@ -131,16 +121,12 @@ function onOrderClick(event,row){
     console.log("click "+orderedListTableCurIndex+"of "+orderedListTableCurIndex);
   }
 }
-function onDeleteRow(event,row,mode="new"){//0:new,1:edit
+function onDeleteRow(event,row){//0:new,1:edit
   //delete
   var table = document.getElementById("ordered_list_table");
   var index= row.rowIndex;
-  if(mode==="new" || !row.hasAttribute("data-id")){//page on new mode
-    table.deleteRow(index);
-  }else{//page on edit mode
-    row.setAttribute("data-command","-1")//1:edit,-1:delete
-    row.style.display="none";
-  }
+  table.deleteRow(index);
+
   console.log("delete at "+index+"and current index: "+orderedListTableCurIndex+" of "+row.length);
   event.preventDefault();
   setOrderListRowClick(true);
@@ -182,9 +168,12 @@ function setOrderListRowClick(checkPrice){
   }
   if(orderedListTableCurIndex>0 && orderedListTableCurIndex<rowCount){
     rows[orderedListTableCurIndex].style.backgroundImage="url('./images/pressed_holo_dark.png')";
+    var link="view.php?action=loadProductComments_div&productId="+rows[orderedListTableCurIndex].getAttribute("data-pId");
+    console.log(link);
+    $("#order_bottom_list").load(link);
   }
 };
-function onOrderProductCommentClick(name,mode="new"){
+function onOrderProductCommentClick(name){
     console.log("addComment at "+orderedListTableCurIndex);
     var table = document.getElementById("ordered_list_table");
     var rows=table.rows;
@@ -199,19 +188,14 @@ function onOrderProductCommentClick(name,mode="new"){
         cell.appendChild(node);
         node.innerHTML="Ghi chu: "+name;
       }
-
-        console.log(mode+" --- "+row.hasAttribute("data-id"));
-      if(mode==="edit" && row.hasAttribute("data-id")){
-        console.log("XXX");
-        row.setAttribute("data-command","1");//1:edit
-      }
   }
 
 }
 
 function loadOrderProducts(element) {
-  var selectedCateId=$(element).data('id');
+  var selectedCateId=$(element).data("id");
   var link="view.php?action=loadProducts_div&categoryId="+selectedCateId;
+  console.log(link);
   $("#order_center_list").load(link,function(xHttp){
     $("#category_menu").children().each(function() {
       $this=$(this);
@@ -224,8 +208,8 @@ function loadOrderProducts(element) {
   });
 }
 // TODO not use now
-function loadOrderProductComments(mode="new") {
-   ajaxLoadPage("php/order_container_controller.php?action=loadOrderProductComments&mode="+mode,function(xHttp){
+function loadOrderProductComments() {
+   ajaxLoadPage("php/order_container_controller.php?action=loadOrderProductComments",function(xHttp){
      document.getElementById("order_bottom_list").innerHTML = xHttp.responseText;
    });
 }

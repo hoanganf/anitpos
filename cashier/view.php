@@ -10,6 +10,7 @@
 	include_once constant("DAO_DIR").'OrderDAO.php';
 	include_once constant("DAO_DIR").'TableDAO.php';
 	include_once constant("DAO_DIR").'ProductDAO.php';
+	include_once constant("DAO_DIR").'ProductCommentDAO.php';
 
 	include_once constant("MODEL_DIR").'PageResource.php';
 	include_once constant("MODEL_DIR").'ViewBuilder.php';
