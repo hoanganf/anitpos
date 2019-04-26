@@ -1,5 +1,8 @@
 <?php
-	interface PageBuilder{
+	/**
+	 *
+	 */
+	interface PageBuilder {
 		public function buildHtml($resource);
 	}
 ?>

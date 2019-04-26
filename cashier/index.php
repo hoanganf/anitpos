@@ -1,6 +1,7 @@
 <?php
 // print result
 	define('DAO_DIR','../libs/php/dao/');
+	define('LIB_DIR','../libs/php/');
 	define('CONTROLLER_DIR','src/controllers/');
 	define('MODEL_DIR','src/models/');
 	define('VIEW_DIR','src/views/');
@@ -18,8 +19,11 @@
 	include_once constant("MODEL_DIR").'PageBuilder.php';
 	include_once constant("MODEL_DIR").'CashierPageBuilder.php';
 	include_once constant("MODEL_DIR").'OrderPageBuilder.php';
+	include_once constant("MODEL_DIR").'CheckOutPageBuilder.php';
 
 	include_once constant("CONTROLLER_DIR").'PageGetter.php';
+	include_once constant("LIB_DIR").'error_handling.php';
+
 
 	$pageId='cashier';
 	if(isset($_GET['pageId'])){

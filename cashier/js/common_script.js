@@ -1,3 +1,19 @@
+function showAlertDialog(title,message,okButton=false,cancelButton=false){
+  $modalDialog=$(".modal-dialog");
+  $modalDialog.find('.modal-dialog__content__title').text(title);
+  $modalDialog.find('.modal-dialog__content__message').text(message);
+  if(!okButton){
+    $modalDialog.find('.modal-dialog__cancel').css('display','none');
+  }
+  if(!cancelButton){
+    $modalDialog.find('.modal-dialog__cancel').css('display','none');
+  }
+  $modalDialog.css('display','block');
+}
+function closeAlertDialog(t){
+  $modalDialog=$(".modal-dialog");
+  $modalDialog.css('display','none');
+}
 function showLoader(isShow=true){
   var loader=document.getElementById("loading_page");
   if(isShow){

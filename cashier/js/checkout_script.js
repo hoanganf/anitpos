@@ -1,22 +1,21 @@
 function onSoftKeyboardNumber(value){
-    var div = document.getElementById("moneyInput");
+    var $moneyInput=$('#moneyInput');
     if(value==='C'){
-      div.value='';
-    }else if(value==='<='){
-      if(div.value.length>0){
-        div.value=div.value.substring(0,div.value.length-1);
-        div.value=formatCurrency(div.value.replace(/,/g,''));
+      $moneyInput.val('');
+    }else if(value === '<='){
+      if($moneyInput.val().length>0){
+        var maskValue=$moneyInput.val();
+        $moneyInput.val(maskValue.substring(0,$moneyInput.val().length-1));
+        $moneyInput.val(formatCurrency(div.value.replace(/,/g,'')));
       }
-    }else{
-      div.value+=value;
-      div.value=formatCurrency(div.value.replace(/,/g,''));
+    }else if(parseInt(value) !== 0 || $moneyInput.val() !== ''){
+        var maskValue=$moneyInput.val()+value;
+        $moneyInput.val(formatCurrency(maskValue.replace(/,/g,'')));
     }
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-  setToDrag(document.getElementById('dragbar'),document.getElementById('left_container'));
-  document.getElementById("moneyInput").oninput = function() {
-    var div=document.getElementById('moneyInput');
-    div.value=formatCurrency(div.value.replace(/,/g,''));
-  };
+$('#moneyInput').on('keyup',function() {
+  var $moneyInput=$('#moneyInput');
+  if($moneyInput.val() === '0') $moneyInput.val('');
+  else $moneyInput.val(formatCurrency($moneyInput.val().replace(/,/g,'')));
 });

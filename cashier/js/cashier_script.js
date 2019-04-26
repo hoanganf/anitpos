@@ -1,37 +1,46 @@
 
 function loadOrderGroupByTableInArea(areaId){
-  ajaxLoadPage("view.php?action=loadOrderGroups_tr&areaId="+areaId,function(xHttp){
-    document.getElementById("order_body").innerHTML = xHttp.responseText;
-  });
+  $('#order_body').load('view.php?action=loadOrderGroups_tr&areaId='+areaId);
 }
-function editOrder(event,numberId,tableId){
-  event.preventDefault();
-  location.href="index.php?pageId=editOrder&numberId="+numberId+"&tableId="+tableId;
+function editOrder(event,numberId){
+  $(location).attr('href','index.php?pageId=editOrder&numberId='+numberId);
+  event.stopPropagation();
 }
 function deleteOrder(event,numberId){
-  event.preventDefault();
-  ajaxLoadPage("php/cashier_container_controller.php?action=deleteOrder&numberId="+numberId,function(xHttp){
-      console.log(xHttp.responseText);
-      var response=JSON.parse(xHttp.responseText);
+  $.get("php/cashier_container_controller.php?action=deleteOrder&numberId="+numberId,
+  function(responseTxt, statusTxt, xhr){
+    if(statusTxt == "success"){
+      console.log(responseTxt);
+      var response=JSON.parse(responseTxt);
       if(response.status=="ok"){
-        var table = document.getElementById("ordered_list_table");
-        var index= event.target.parentNode.parentNode.rowIndex;
-        var row = table.deleteRow(index);
+        $(event.target).parent().parent().remove();
+        return;
       }
+    }
+    alert("Error: " + xhr.status + ": " + xhr.statusText);
   });
+  event.stopPropagation();
 }
 function onNotifiClose(element){
-    var div = element.parentElement;
-    div.style.opacity = "0";
-    setTimeout(function(){ div.parentElement.removeChild(div); }, 300);
+    var $parentElement = $(element).parent();
+    $parentElement.addClass("opacity--hide");
+    setTimeout(function(){
+      $parentElement.remove();
+    }, 200);
 }
 function onSoftKeyboardNumber(value){
-    var div = document.getElementById("numberIdInput");
-    div.value+=value;
+  if($numberIdInput.val().length === 0 && value === 0) return;
+  $numberIdInput.val($numberIdInput.val()+value);
 }
+
 function onOrderTableItemClick(value,event){
-  if(!event.defaultPrevented){
-    var div = document.getElementById("numberIdInput");
-    div.value=value;
-  }
+  var div = document.getElementById("numberIdInput");
+  div.value=value;
 }
+//page run setting
+//not allow 0 in the first input
+$numberIdInput=$("#numberIdInput");
+$numberIdInput.on('keyup',function(){
+  console.log($numberIdInput.val());
+  if($numberIdInput.val() === '0') $numberIdInput.val('');
+});

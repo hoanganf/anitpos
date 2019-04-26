@@ -11,5 +11,14 @@ class OrderDAO extends BaseDAO{
 
     return $this->getQuery($sql);
   }
+  function getOrderListByNumberId($numberId){
+    $sql='SELECT o.*, t.name as table_name, p.name as product_name FROM `order` o LEFT JOIN `table` t ON o.table_id=t.id LEFT JOIN product p ON o.product_id=p.id WHERE o.number_id='.$numberId.' ORDER BY o.order_time DESC';
+    return $this->getQuery($sql);
+  }
+  function getOrderDetailListByNumberId($numberId){
+    $sql='SELECT	o.*,p.name as product_name,t.name as table_name FROM `order` o LEFT JOIN product p ON o.product_id=p.id LEFT JOIN `table` t ON t.id=o.table_id WHERE  o.number_id='.$numberId.' ORDER BY o.product_id DESC';
+    return $this->getQuery($sql);
+  }
+
 }
 ?>

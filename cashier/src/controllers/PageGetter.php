@@ -9,12 +9,31 @@
       $pageResource->pageTitle='Restaurant';
       switch ($pageId) {
         case 'order':
-          $pageBuilder=new OrderPageBuilder();
-		      $pageResource->isOrder=TRUE;
+					$pageBuilder=new OrderPageBuilder();
+					$pageResource->isOrder=TRUE;
 					break;
+				case 'editOrder':
+					$pageBuilder=new OrderPageBuilder();
+					if(isset($_GET['numberId'])){
+		      	$pageResource->numberId=$_GET['numberId'];
+			      $pageResource->isOrder=TRUE;
+						break;
+		      }else{
+						trigger_error("Xay ra su co xin vui long lien he quan ly",E_NO_NUMBER_ID);
+					}
         case 'cashier':
           $pageBuilder=new CashierPageBuilder();
 					$pageResource->isCashier=TRUE;
+					break;
+				case 'checkOut':
+					$pageBuilder=new CheckOutPageBuilder();
+					if(isset($_GET['numberId']) && is_numeric($_GET['numberId'])){
+						$pageResource->numberId=$_GET['numberId'];
+						$pageResource->isCashier=TRUE;
+						break;
+					}else{
+						trigger_error("Xay ra su co xin vui long lien he quan ly",E_NO_NUMBER_ID);
+					}
 					break;
         default:
           $pageBuilder=new CashierPageBuilder();
