@@ -41,7 +41,7 @@ class DAO{
       }
       // Check connection
       if (!$this->connection) {
-          die("Connection failed: " . mysqli_connect_error());
+        trigger_error("Connection failed: ".mysqli_connect_error(), E_MYSQL_CONNECTION_FAIL);
       }
       //set UTF
       mysqli_query($this->connection,"SET NAMES 'utf8'");
@@ -65,8 +65,7 @@ class DAO{
     if($args[0]){
     	$queryResult=mysqli_query($this->connection,$args[0]);
       if(!$queryResult){
-        echo $args[0];
-        echo("Query Error description: " . mysqli_error($this->connection));
+        trigger_error("[SQL]:".$args[0]."[Query Error description]: " . mysqli_error($this->connection), E_MYSQL_QUERY_FAIL);
       }
       switch ($functionName) {
         case 'query':

@@ -12,5 +12,14 @@ class TableDAO extends BaseDAO{
     }
     return $result;
   }
+  function getTable($tableId,$local=false){
+    $result=null;
+    if($local){
+      $result = $this->getAllWhere('available=1 AND id='.$tableId);
+    }else{
+      $result = $this->getAllWhere('available=1 AND id='.$tableId.' AND res_id='.DAO::$RES_ID,DAO::$SERVER_DATABASE_NAME);
+    }
+    return $result;
+  }
 }
 ?>

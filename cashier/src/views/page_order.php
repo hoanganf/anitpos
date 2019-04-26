@@ -7,6 +7,9 @@
 <div class="dragbar-container">
 	<div class="dragbar-container__left">
 		<div class="white-space--nowrap">
+      <?php if(!empty($resource->numberId)){ ?>
+      <input type="hidden" id="number_id" name="number_id" value="<?php echo $resource->numberId;?>"/>
+      <?php } ?>
 			<label class="color--gray">Khu vuc: </label>
 			<select id="select_area">
         <?php
@@ -18,14 +21,24 @@
 			<select id="select_table">
         <?php include 'view_order_tables_option.php';?>
 			</select>
-			<a class="rounded hover--green padding float--right margin--left" onclick="submitOrder(true,'new');return false;">Thanh toan</a>
-			<a class="rounded hover--blue padding float--right" onclick="submitOrder(false,'new');return false;">Goi mon</a>
+			<a class="rounded hover--green padding float--right margin--left" onclick="submitAndCheckOutOrder();return false;">Thanh toan</a>
+			<a class="rounded hover--blue padding float--right" onclick="submitOrder();return false;">Goi mon</a>
 		</div>
 		<table id="ordered_list_table">
 			<tr>
+        <th>Ban</th>
 				<th>[0] mon</th>
-				<th class="white-space--nowrap" colspan="4">Tong tien[0]</th>
+				<th class="white-space--nowrap" colspan="3">Tong tien[0]</th>
 			</tr>
+      <?php foreach( $resource->orders as $order){ ?>
+      <tr data-order-id="<?php echo $order['id']; ?>" data-table-id="<?php echo $order['table_id']; ?>" data-pid="<?php echo $order['product_id']; ?>" data-name="<?php echo $order['product_name']; ?>" data-count="<?php echo $order['count']; ?>" data-price="<?php echo $order['price']; ?>" >
+        <td><strong class="rounded background-color--gray padding"><?php echo $order['table_name']; ?></strong></td>
+        <td class="width--full"><strong class="color--blue"><?php echo $order['product_name']; ?></strong></td>
+        <td class="text-align--right white-space--nowrap"><span class="rounded background-color--yellow padding"><?php echo $order['price']; ?></span></td>
+        <td class="text-align--center"><img onclick="onAddRow(this)" width="24px" height="24px" src="./images/ic_add.png" alt="Them"></td>
+        <td class="text-align--center"><img onclick="onDeleteRow(this)" width="24px" height="24px" src="./images/ic_close.png" alt="Xoa"></td>
+      </tr>
+      <?php  } ?>
 		</table>
 	</div>
 	<div class="dragbar-container__dragbar"></div>

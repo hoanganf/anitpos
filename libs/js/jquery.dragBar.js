@@ -27,6 +27,6 @@
   $.fn.applyDrag = function(leftContainer){
     var dragBar=new DragBar(this,leftContainer);
     dragBar.init();
-    return dragBar;
+    return this;
   }
 })(jQuery);

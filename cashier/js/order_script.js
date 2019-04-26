@@ -1,56 +1,39 @@
-
-function submitOrder(isCheckout=false,numberId=-1,mode="new"){
-  var table = document.getElementById("ordered_list_table");
-  var rows=table.rows;
-  var rowCount=rows.length;
+function getOrder(){
+  var $rows=$tableBody.children();
+  var rowCount=$rows.length;
   var action="order";//new setting
-  if( mode==="edit"){
-    action="editOrder&numberId="+numberId;
-  }else if(rowCount<2){
-    alert("Vui long chon mon!");
+  if(rowCount<2){
+    showAlertDialog("Goi mon","Xin vui long chon mon",false,true);
     return;
   }
-  var selectedTable=document.getElementById("select_tables");
-  var tableId=selectedTable.options[selectedTable.selectedIndex].value;
-  var i;
-  var orders = new Array();
-  for(i=1;i<rowCount;i++){
-    var row=rows[i];
-    var commentTmp="";
-    var commandTmp="";
-    var idTmp="";
-    console.log(row.cells[0].childNodes.length);
-    var j;
-    for(j=0;j<row.cells[0].childNodes.length;j++){
-      console.log(row.cells[0].childNodes[j].innerHTML);
-    }
-    if(row.cells[0].childNodes.length>1){
-      commentTmp=row.cells[0].childNodes[1].innerHTML;
-    }
-    if(mode==="edit"){
-      idTmp=row.hasAttribute("data-id") ? row.getAttribute("data-id") : -1;
-      commandTmp=row.hasAttribute("data-command") ? row.getAttribute("data-command") : 0;
+  var orders = {};
+  var $numberId=$('#number_id');
+  if($numberId.length>0){
+    orders.number_id=$numberId.val();
+  }
+  orders.data=[];
+  $tableBody.find('tr:has(td)').each(function(){
+    var $row=$(this);
+    var commentTmp='';
+    if($row.children().eq(1).children().length>1){
+      commentTmp=$row.children().eq(1).children().eq(1).text();
     }
     var order={
-      id : idTmp,
-      command: commandTmp,
-      waiter_id:"admin",//TODO
-      chef_id:"",
-      table_id:tableId,
-      product_id:row.getAttribute("data-pId"),
-      count:row.getAttribute("data-count"),
-      comments:commentTmp,
-      price:row.getAttribute("data-price"),
-      status:row.getAttribute("data-status")
+      table_id:$row.data('table-id'),
+      product_id:$row.data('pid'),
+      count:$row.data('count'),
+      comments:commentTmp
     }
-    orders.push(order);
-
-  }
+    if($row.data('order-id') !== undefined){
+      order.order_id=$row.data('order-id');
+    }
+    orders.data.push(order);
+  });
 
   var dbParam, xmlhttp;
   dbParam = JSON.stringify(orders);
-  console.log("php/order_container_controller.php?action="+action+"&value=" + dbParam);
-  ajaxLoadPage("php/order_container_controller.php?action="+action+"&value=" + dbParam,function(xHttp){
+  console.log(dbParam);
+  /*ajaxLoadPage("php/order_container_controller.php?action="+action+"&value=" + dbParam,function(xHttp){
     console.log(xHttp.responseText);
     var response=JSON.parse(xHttp.responseText);
     if(response.status=="ok"){
@@ -60,158 +43,120 @@ function submitOrder(isCheckout=false,numberId=-1,mode="new"){
         removeAllOrder();
       }
     }
-  });
+  });*/
 }
-
+function submitAndCheckOutOrder(){
+  getOrder();
+}
+function submitOrder(){
+  getOrder();
+}
 function removeAllOrder(){
-  var table = document.getElementById("ordered_list_table");
-  while(table.rows.length>1){
-    table.deleteRow(1);
-  };
-  orderedListTableCurIndex=-1;
-  setOrderListRowClick(true);
+  $tableBody.find('tr:has(td)').remove();
+  orderedListTableCurIndex=0;
+  sumPriceAndDisplay();
 }
-function onOrderProductClick(id,name,count,price,status,comment){
-  var table = document.getElementById("ordered_list_table");
-  var rows=table.rows;
-  orderedListTableCurIndex=rows.length;
-  var i;
-  console.log(comment);
+function onOrderProductClick(id,name,count,price,comment){
+  var $trs=$tableBody.children();
+  var insertIndex=$trs.length-1;
+  var $selectedTable=$('#select_table');
   //find same product
-  for(i=orderedListTableCurIndex-1;i>0;i--){
-    var pId=rows[i].getAttribute("data-pId");
-    console.log("find "+i+" of "+orderedListTableCurIndex);
+  for(var i=insertIndex;i>0;i--){
+    var pId=$trs.eq(i).data('pid');
+    //console.log("find "+i+" of "+insertIndex);
     if(pId==id){
       console.log("BANG NHAU");
-      orderedListTableCurIndex=i+1;
+      insertIndex=i;
       break;
     }
   }
-
-  var row = table.insertRow(orderedListTableCurIndex);
-    console.log(" chen vao vi tri "+orderedListTableCurIndex+" of "+rows.length);
-  row.setAttribute("data-pId", id);
-  row.setAttribute("data-name", name);
-  row.setAttribute("data-count", count);
-  row.setAttribute("data-price", price);
-  row.setAttribute("data-status", status);
-  var cell1 = row.insertCell(0);
-  var cellMoney = row.insertCell(1);
-  var cell2 = row.insertCell(2);
-  var cell3 = row.insertCell(3);
-  var span=document.createElement("span");
-  row.addEventListener("click", function(event){onOrderClick(event,row);});
-  cell1.innerHTML = "<strong style='color: #2196F3;'>"+name+"</strong>";
-  if(comment!=null && comment!=''){
-    cell1.innerHTML=cell1.innerHTML+"<div>"+comment+"</div>";
-  }
-  cell1.style.width="100%";
-  cellMoney.style.whiteSpace="nowrap";
-  cellMoney.classList.add("right");
-  span.style.color="white";
-  span.style.whiteSpace="nowrap";
-  span.style.borderRadius="5px";
-  span.style.backgroundColor="#FFD300";
-  span.style.padding="5px";
-  span.innerHTML=formatCurrency(price);
-  cellMoney.appendChild(span);
-  cell2.innerHTML = '<img width="24px" height="24px" src="./images/ic_add.png" alt="Them">';
-  cell3.innerHTML = '<img width="24px" height="24px" src="./images/ic_close.png" alt="Xoa">';
-  cell2.style.textAlign="center";
-  cell3.style.textAlign="center";
-  cell3.addEventListener("click", function(event){onDeleteRow(event,row);});
-  //add
-  cell2.addEventListener("click", function(event){onAddRow(event,row);});
-  setOrderListRowClick(true);
+  var $row = $('<tr/>');
+  var htmlComment=(comment!=null && comment!='') ? "<div>"+comment+"</div>" : '';
+  $row.data('table-id',$selectedTable.val()).data('pid',id).data('name',name).data('count',count).data('price',price);
+  $row.append('<td><strong class="rounded background-color--gray padding">'+$selectedTable.find("option:selected").text()+'</strong></td>')
+      .append('<td class="width--full"><strong class="color--blue">'+name+'</strong>'+htmlComment+'</td>')
+      .append('<td class="text-align--right white-space--nowrap"><span class="rounded background-color--yellow padding">'+formatCurrency(price)+'</span></td>')
+      .append('<td class="text-align--center"><img onclick="onAddRow(this)" width="24px" height="24px" src="./images/ic_add.png" alt="Them"></td>')
+      .append('<td class="text-align--center"><img onclick="onDeleteRow(this)" width="24px" height="24px" src="./images/ic_close.png" alt="Xoa"></td>');
+  console.log('insert= '+insertIndex);
+  //add row to table
+  $row.insertAfter($trs.eq(insertIndex));
+  //set focus
+  $row.trigger('click');
+  //price
+  sumPriceAndDisplay();
 }
-function onOrderClick(event,row){
-  if(!event.defaultPrevented){
-    orderedListTableCurIndex=row.rowIndex;
-    setOrderListRowClick(false);
-    console.log("click "+orderedListTableCurIndex+"of "+orderedListTableCurIndex);
-  }
+function onAddRow(target){
+  $row=$(target).parent().parent();
+  console.log($row.html());
+  var $td1=$row.children().eq(1);
+  var comment=$td1.children().length > 1 ? $td1.children().eq(1).text() : '';
+  onOrderProductClick($row.data('pid'),
+                      $row.data('name'),
+                      $row.data('count'),
+                      $row.data('price'),
+                      comment);
+  sumPriceAndDisplay();
+  event.stopPropagation();
 }
-function onDeleteRow(event,row,mode="new"){//0:new,1:edit
-  //delete
-  var table = document.getElementById("ordered_list_table");
-  var index= row.rowIndex;
-  if(mode==="new" || !row.hasAttribute("data-id")){//page on new mode
-    table.deleteRow(index);
-  }else{//page on edit mode
-    row.setAttribute("data-command","-1")//1:edit,-1:delete
-    row.style.display="none";
-  }
-  console.log("delete at "+index+"and current index: "+orderedListTableCurIndex+" of "+row.length);
-  event.preventDefault();
-  setOrderListRowClick(true);
-}
-function onAddRow(event,row){
-  var cell1=row.cells[0];
-  event.preventDefault();
-  onOrderProductClick(row.getAttribute("data-pId"),row.getAttribute("data-name"),row.getAttribute("data-count"),row.getAttribute("data-price"),row.getAttribute("data-status"),cell1.childElementCount>1?cell1.children[1].innerHTML:'');
-}
-function setOrderListRowClick(checkPrice){
-  var table = document.getElementById("ordered_list_table");
-  var rows=table.rows;
-  var rowCount=rows.length;
-  var i;
-  //clear
-  if(checkPrice){
-    var priceSum=0;
-    for(i=1;i<rowCount;i++){
-      var lRow=rows[i];
-      lRow.style.backgroundImage='';
-      if(lRow.style.display!="none"){
-        priceSum+=Number(lRow.getAttribute("data-price"));
-      }
-    }
-    rows[0].cells[0].innerHTML="["+(rowCount-1)+"] mon";
-    rows[0].cells[1].innerHTML="Tong tien ["+formatCurrency(priceSum)+" VND]";
-  }else{
-    for(i=1;i<rowCount;i++){
-      rows[i].style.backgroundImage='';
-    }
-  }
-  console.log("set focus "+orderedListTableCurIndex+"of "+orderedListTableCurIndex);
-  if (orderedListTableCurIndex < 0 || orderedListTableCurIndex >= rowCount) {
-      var j=orderedListTableCurIndex-1;
-      while(j>0){
-        if(rows[j].style.display!="none") orderedListTableCurIndex=j;
-        j--;
-      }
-  }
-  if(orderedListTableCurIndex>0 && orderedListTableCurIndex<rowCount){
-    rows[orderedListTableCurIndex].style.backgroundImage="url('./images/pressed_holo_dark.png')";
-  }
-};
-function onOrderProductCommentClick(name,mode="new"){
-    console.log("addComment at "+orderedListTableCurIndex);
-    var table = document.getElementById("ordered_list_table");
-    var rows=table.rows;
-  if(orderedListTableCurIndex > 0 && orderedListTableCurIndex<rows.length){
-      var row=rows[orderedListTableCurIndex];
-      var cell=row.cells[0];
-      if(cell.childElementCount>1){
-        var comment=cell.children[1];
-        comment.innerHTML=comment.innerHTML+","+name;
+function onDeleteRow(target){
+  $row=$(target).parent().parent();
+  var rowIndex=$row.index();
+  $row.remove();
+  $trs=$tableBody.children();
+  var currentPressedIndex=parseInt($tableBody.data('currentPressedIndex'));
+  if(currentPressedIndex !== 'NaN'){
+    if(currentPressedIndex >= $trs.length-1){
+      $trs.eq($trs.length-1).trigger('click');
+    }else if(rowIndex < currentPressedIndex){
+      if(currentPressedIndex==1){
+        $trs.eq(1).trigger('click');
       }else{
-        var node = document.createElement("div");
-        cell.appendChild(node);
-        node.innerHTML="Ghi chu: "+name;
+        $trs.eq(currentPressedIndex-1).trigger('click');
       }
-
-        console.log(mode+" --- "+row.hasAttribute("data-id"));
-      if(mode==="edit" && row.hasAttribute("data-id")){
-        console.log("XXX");
-        row.setAttribute("data-command","1");//1:edit
-      }
+    }else if(rowIndex == currentPressedIndex){
+      $trs.eq(currentPressedIndex).trigger('click');
+    }
   }
-
+  sumPriceAndDisplay();
+  event.stopPropagation();
+}
+function sumPriceAndDisplay(){
+  var priceSum=0;
+  var orderedProductCount=0;
+  $tableBody.find('tr:has(td)').each(function(){
+    priceSum+=Number($(this).data('price'));
+    orderedProductCount++;
+  });
+  $tableTitle=$tableBody.children().eq(0);
+  $tableTitle.children().eq(1).html('['+orderedProductCount+'] mon');
+  $tableTitle.children().eq(2).html('Tong tien ['+formatCurrency(priceSum)+' VND]');
+}
+function onOrderProductCommentClick(name){
+  var currentPressedIndex=parseInt($tableBody.data('currentPressedIndex'));
+  if(currentPressedIndex !== 'NaN'){
+    console.log("addComment at "+currentPressedIndex);
+    var $trs=$tableBody.children();
+    //because index 0 is <th> tag
+    if(currentPressedIndex > 0 && currentPressedIndex<$trs.length){
+      var $tr=$trs.eq(currentPressedIndex);
+      var $td=$tr.children().eq(1);
+      var $tdChilds=$td.children();
+      console.log($tdChilds.text());
+      if($tdChilds.length>1){
+        var comment=$tdChilds.eq(1);
+        comment.html(comment.text()+', ' +name);
+      }else{
+        $td.append('<div>'+name+'</div>');
+      }
+    }
+  }
 }
 
 function loadOrderProducts(element) {
-  var selectedCateId=$(element).data('id');
+  var selectedCateId=$(element).data("id");
   var link="view.php?action=loadProducts_div&categoryId="+selectedCateId;
+//  console.log(link);
   $("#order_center_list").load(link,function(xHttp){
     $("#category_menu").children().each(function() {
       $this=$(this);
@@ -223,15 +168,26 @@ function loadOrderProducts(element) {
     });
   });
 }
-// TODO not use now
-function loadOrderProductComments(mode="new") {
-   ajaxLoadPage("php/order_container_controller.php?action=loadOrderProductComments&mode="+mode,function(xHttp){
-     document.getElementById("order_bottom_list").innerHTML = xHttp.responseText;
-   });
+function loadProductComments(pId){
+  var link="view.php?action=loadProductComments_div&productId="+pId;
+    $("#order_bottom_list").load(link);
+}
+function removePressedTableRow(){
+  $tableBody.find('.pressed--forcus').removeClass('pressed--forcus')
 }
 //reload table list when change area
 $('#select_area').on('change', function(event){
-  ajaxLoadPage('view.php?action=loadTables_option&areaId='+$(event.target).val(),function(xHttp){
-    $('#select_table').html(xHttp.responseText);
-  })
+  $('#select_table').load('view.php?action=loadTables_option&areaId='+$(event.target).val());
+});
+//table set click add addEventListener
+$tableBody=$("#ordered_list_table tbody");
+$tableBody.on('click','tr:has(td)',function(event){
+  var $this=$(this);
+  var thisIndex=$this.index();
+  var $rows=$tableBody.children();
+  removePressedTableRow();
+  $this.addClass('pressed--forcus');
+  $tableBody.data('currentPressedIndex',thisIndex);
+  console.log("click "+(thisIndex)+"of "+($rows.length)+" with pID="+$(this).data('pid'));
+  loadProductComments($(this).data('pid'))
 });
