@@ -1,8 +1,6 @@
 <?php
   //echo 'PageGetter: '.$_SERVER["PHP_SELF"].'<br/>';
 	class PageGetter{
-    private $pageBuilder;
-    private $pageResource;
 		public function get($pageId){
       $pageResource=new PageResource();
       //TODO get restaurant name from database

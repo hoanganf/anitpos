@@ -31,7 +31,7 @@ class DAO{
         case 1:
           //echo 'case 1 <br/>';
           if($args[0]){
-            echo $args[0];
+          //  echo $args[0];
             $this->connection=mysqli_connect(self::LOCAL_HOST,self::LOCAL_USER_NAME,self::LOCAL_PASSWORD,$args[0]);
             break;
           }
@@ -41,7 +41,7 @@ class DAO{
       }
       // Check connection
       if (!$this->connection) {
-        trigger_error("Connection failed: ".mysqli_connect_error(), E_MYSQL_CONNECTION_FAIL);
+        trigger_error("Connection failed: ".mysqli_connect_error(), E_WARNING);
       }
       //set UTF
       mysqli_query($this->connection,"SET NAMES 'utf8'");
@@ -65,22 +65,28 @@ class DAO{
     if($args[0]){
     	$queryResult=mysqli_query($this->connection,$args[0]);
       if(!$queryResult){
-        trigger_error("[SQL]:".$args[0]."[Query Error description]: " . mysqli_error($this->connection), E_MYSQL_QUERY_FAIL);
+        trigger_error("[SQL]:".$args[0]."[Query Error description]: " . mysqli_error($this->connection));
       }
       switch ($functionName) {
         case 'query':
         case "delete":
         case "update":
         case "multiQuery":
-            $this->close();
-            return $queryResult;
+          $this->close();
+          return $queryResult;
         case "insert":
           $queryResult=mysqli_insert_id($this->connection);
           $this->close();
+          return $queryResult;
+        case "queryNotAutoClose":
+          return $queryResult;
         default:
           //DO NOTHING;
       }
     }
+  }
+  public function getLastInsertId(){
+    return mysqli_insert_id($this->connection);
   }
 
   public static function log($content){
@@ -96,7 +102,7 @@ class DAO{
   	return mysqli_fetch_array($queryResult);
   }
 
-  private function convertQueryResultToList($queryResult){
+  public function convertQueryResultToList($queryResult){
     $list=array();
     while($row = $this->fetchArray($queryResult)){
       //array_push($list,$this->convertArrayToData($row));
@@ -112,14 +118,14 @@ class DAO{
     return $data;
   }*/
 
-  public function getListQuery($sql){
+  public function getListQuery($sql,$database){
     $result=array();
-    $queryResult=$this->query($sql);
+    $queryResult=$this->query($sql,$database);
     return $this->convertQueryResultToList($queryResult);
   }
 
-  public function getRowQuery($sql){
-    $queryResult=$this->query($sql);
+  public function getRowQuery($sql,$database){
+    $queryResult=$this->query($sql,$database);
     if($row = $this->fetchArray($queryResult)){
   		//return $this->convertArrayToData($row);
       return $row;

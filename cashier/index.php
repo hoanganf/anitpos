@@ -24,6 +24,7 @@
 	include_once constant("CONTROLLER_DIR").'PageGetter.php';
 	include_once constant("LIB_DIR").'error_handling.php';
 
+	set_error_handler("errorRedirect");
 
 	$pageId='cashier';
 	if(isset($_GET['pageId'])){

@@ -1,7 +1,5 @@
 <?php
 	class ViewGetter{
-    private $viewBuilder;
-    private $pageResource;
 		public function get(){
 			$resource=new PageResource();
       if(isset($_GET['areaId'])){

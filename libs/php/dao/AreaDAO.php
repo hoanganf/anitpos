@@ -17,9 +17,9 @@ class AreaDAO extends BaseDAO{
     $dBAdapter=new DBAdapter();
     $result=null;
     if($local){
-      $result = $this->getAllWhere('id='.$id.' AND available=1');
+      $result = $this->getOnceWhere('id='.$id.' AND available=1');
     }else{
-      $result = $this->getAllWhere('id='.$id.' AND available=1 AND res_id='.DBAdapter::RES_ID,DAO::$SERVER_DATABASE_NAME);
+      $result = $this->getOnceWhere('id='.$id.' AND available=1 AND res_id='.DBAdapter::RES_ID,DAO::$SERVER_DATABASE_NAME);
     }
   	if($row = mysqli_fetch_array($result)){
   		return $row;
