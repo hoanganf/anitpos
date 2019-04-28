@@ -1,0 +1,731 @@
+2019-04-26 20:43:18 - Error: [2], mysqli_connect(): (HY000/2002): No such file or directory in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 40, Variables:Array
+(
+    [args] => Array
+        (
+        )
+
+    [argCount] => 0
+)
+
+2019-04-26 20:43:46 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => query
+    [args] => Array
+        (
+            [0] => SELECT * FROM area WHERE available=1 AND res_id=1
+        )
+
+    [queryResult] => 
+)
+
+2019-04-26 20:43:48 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => query
+    [args] => Array
+        (
+            [0] => SELECT * FROM area WHERE available=1 AND res_id=1
+        )
+
+    [queryResult] => 
+)
+
+2019-04-26 20:43:49 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => query
+    [args] => Array
+        (
+            [0] => SELECT * FROM area WHERE available=1 AND res_id=1
+        )
+
+    [queryResult] => 
+)
+
+2019-04-26 20:43:50 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => query
+    [args] => Array
+        (
+            [0] => SELECT * FROM area WHERE available=1 AND res_id=1
+        )
+
+    [queryResult] => 
+)
+
+2019-04-26 20:43:50 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => query
+    [args] => Array
+        (
+            [0] => SELECT * FROM area WHERE available=1 AND res_id=1
+        )
+
+    [queryResult] => 
+)
+
+2019-04-26 21:41:28 - Error: [8], Undefined variable: number_id in /Users/anit/Projects/web/anit_pos/libs/php/dao/OrderDAO.php on line 19, Variables:Array
+(
+    [numberId] => 6
+)
+
+2019-04-26 21:41:53 - Error: [8], Undefined variable: number_id in /Users/anit/Projects/web/anit_pos/libs/php/dao/OrderDAO.php on line 19, Variables:Array
+(
+    [numberId] => 6
+)
+
+2019-04-26 21:42:44 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => query
+    [args] => Array
+        (
+            [0] => SELECT	o.*,p.name as product_name FROM order o,product p WHERE o.product_id=p.id AND o.number_id=6 ORDER BY o.product_id DESC
+        )
+
+    [queryResult] => 
+)
+
+2019-04-26 21:44:19 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => query
+    [args] => Array
+        (
+            [0] => SELECT	o.*,p.name as product_name FROM order o,product p WHERE o.product_id=p.id AND o.number_id=6 ORDER BY o.product_id DESC
+        )
+
+    [queryResult] => 
+)
+
+2019-04-27 19:07:04 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 19:07:06 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 19:07:14 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 19:07:20 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 19:07:38 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 19:07:45 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 19:07:45 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 19:07:46 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 19:07:46 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 19:09:24 - Error: [2], chmod(): Operation not permitted in /Users/anit/Projects/web/anit_pos/libs/php/error_handling.php on line 30, Variables:Array
+(
+    [_GET] => Array
+        (
+            [pageId] => cashier
+        )
+
+    [_POST] => Array
+        (
+        )
+
+    [_COOKIE] => Array
+        (
+        )
+
+    [_FILES] => Array
+        (
+        )
+
+)
+
+2019-04-27 19:11:01 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 19:17:54 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 19:18:47 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/controllers/PageGetter.php on line 33, Variables:Array
+(
+    [pageId] => checkOut
+    [pageResource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                )
+
+        )
+
+    [pageBuilder] => CheckOutPageBuilder Object
+        (
+        )
+
+)
+
+2019-04-27 21:06:38 - Error: [8], Undefined offset: 0 in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 7, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1333
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:07:43 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1333
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:07:52 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1222
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:08:42 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1222
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:10:00 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1222
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:10:01 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1222
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:10:01 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1222
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:10:01 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1222
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:10:02 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1222
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:10:02 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1222
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:10:02 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1222
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:10:02 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1222
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-27 21:10:03 - Error: [2], Invalid error type specified in /Users/anit/Projects/web/anit_pos/cashier/src/models/CheckOutPageBuilder.php on line 8, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [pageTitle] => Restaurant
+                    [numberId] => 1222
+                    [isCashier] => 1
+                    [orders] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+    [adapter] => OrderDAO Object
+        (
+            [tableName:BaseDAO:private] => `order`
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-28 07:10:31 - Error: [8], Undefined variable: message in /Users/anit/Projects/web/anit_pos/login/src/views/login.php on line 42, Variables:Array
+(
+)
+
+2019-04-28 07:28:20 - Error: [8], Trying to get property of non-object in /Users/anit/Projects/web/anit_pos/login/src/controllers/PageGetter.php on line 11, Variables:Array
+(
+    [request] => Data Object
+        (
+            [data:Data:private] => Array
+                (
+                    [user_name] => admin
+                    [password] => 1234
+                )
+
+        )
+
+    [loginResult] => {"status":true,"message":"Successful login.","user_name":"admin","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiMTIzNCIsInJvbGUiOiJBIn0.6EeQ4vQYTw48ghASoZwYtDkUgf3BmDTX8adDdq8cJqg"}
+)
+
+2019-04-28 08:22:48 - Error: [8], Use of undefined constant p - assumed 'p' in /Users/anit/Projects/web/anit_pos/login/src/controllers/PageGetter.php on line 26, Variables:Array
+(
+    [request] => Data Object
+        (
+            [data:Data:private] => Array
+                (
+                    [user_name] => admin
+                    [password] => 1234
+                )
+
+        )
+
+    [loginResult] => stdClass Object
+        (
+            [status] => 1
+            [message] => Successful login.
+            [user_name] => admin
+            [access_token] => eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTY1MTg5NjgsInVzZXJfbmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjM0Iiwicm9sZSI6IkEifQ.OUSJlgnpfzU_jpLyDthYIAyXJwgTCee4g1qKGWCJZJ4
+        )
+
+)
+
+2019-04-28 08:34:10 - Error: [8], Undefined index: Cookie in /Users/anit/Projects/web/anit_pos/login/index.php on line 24, Variables:Array
+(
+    [_GET] => Array
+        (
+        )
+
+    [_POST] => Array
+        (
+        )
+
+    [_COOKIE] => Array
+        (
+        )
+
+    [_FILES] => Array
+        (
+        )
+
+    [headers] => Array
+        (
+            [Host] => localhost
+            [Connection] => keep-alive
+            [Cache-Control] => max-age=0
+            [Upgrade-Insecure-Requests] => 1
+            [User-Agent] => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36
+            [Accept] => text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+            [Accept-Encoding] => gzip, deflate, br
+            [Accept-Language] => en-US,en;q=0.9,vi;q=0.8,ja;q=0.7
+        )
+
+)
+

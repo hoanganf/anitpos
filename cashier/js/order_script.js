@@ -1,13 +1,13 @@
-function getOrder(){
+function getOrder(isCheckOutAfterSubmit=false){
   var $rows=$tableBody.children();
   var rowCount=$rows.length;
-  var action="order";//new setting
-  if(rowCount<2){
+  var $numberId=$('#number_id');
+
+  if(rowCount<2 && $numberId.length<1){
     showAlertDialog("Goi mon","Xin vui long chon mon",false,true);
     return;
   }
   var orders = {};
-  var $numberId=$('#number_id');
   if($numberId.length>0){
     orders.number_id=$numberId.val();
   }
@@ -25,7 +25,7 @@ function getOrder(){
       comments:commentTmp
     }
     if($row.data('order-id') !== undefined){
-      order.order_id=$row.data('order-id');
+      order.id=$row.data('order-id');
     }
     orders.data.push(order);
   });
@@ -33,6 +33,35 @@ function getOrder(){
   var dbParam, xmlhttp;
   dbParam = JSON.stringify(orders);
   console.log(dbParam);
+  $.ajax({
+       url: "../api/order.php",
+       type : "POST",
+       contentType : 'application/json',
+       data : dbParam,
+       success : function(response) {
+         if(response.status === true){
+           console.log(response);
+           /*var numberId=parseInt(response.message);
+           if(numberId > 0 ){
+             if(isCheckOutAfterSubmit){
+               location.href='index.php?pageId=checkOut&numberId='+response.message;
+             }else{
+               location.href='index.php?pageId=order';
+             }
+           }else if(numberId === 0){//no number ID (edit mode)
+             location.href='index.php?pageId=cashier';
+           }*/
+         }else{
+           if(response.code == 306) location.href='../login/';
+           else showAlertDialog('That bai',response.message,false,false);
+         }
+       },
+       error: function(xhr, resp, text){
+           console.log(xhr);
+           console.log(resp);
+           console.log(text);
+       }
+   });
   /*ajaxLoadPage("php/order_container_controller.php?action="+action+"&value=" + dbParam,function(xHttp){
     console.log(xHttp.responseText);
     var response=JSON.parse(xHttp.responseText);
@@ -46,14 +75,16 @@ function getOrder(){
   });*/
 }
 function submitAndCheckOutOrder(){
-  getOrder();
+  getOrder(true);
 }
 function submitOrder(){
-  getOrder();
+  getOrder(false);
 }
 function removeAllOrder(){
-  $tableBody.find('tr:has(td)').remove();
-  orderedListTableCurIndex=0;
+  $tableBody.find('tr:has(td)').each(function(){
+    $(this).remove();
+  });
+  $tableBody.data('currentPressedIndex',undefined);
   sumPriceAndDisplay();
 }
 function onOrderProductClick(id,name,count,price,comment){

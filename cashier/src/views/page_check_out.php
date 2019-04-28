@@ -16,8 +16,8 @@
 			 foreach( $resource->orders as $order){?>
 	      <tr class="margin">
 					<td><strong class="rounded background-color--gray padding"><?php echo $order['table_name']; ?></strong></td>
-	        <td class="width--full text-align--left padding"><strong class="color--blue"><?php echo $order['product_name'] ?></strong><?php if(isset($order['comments'])) echo "<br/>".$order['comments']?></td>
-	        <td class="white-space--nowrap text-align--right"><span class="rounded background-color--yellow"><?php echo number_format($order['price']);?></span></td>
+	        <td class="width--full text-align--left padding"><strong class="color--blue"><?php echo $order['product_name'] ?></strong><div><?php echo $order['comments']; ?></div></td>
+	        <td class="white-space--nowrap text-align--right"><span class="rounded background-color--yellow padding"><?php echo number_format($order['price']);?></span></td>
 	      </tr>
 			<?php } ?>
 			</table>

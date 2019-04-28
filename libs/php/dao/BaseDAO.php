@@ -7,14 +7,20 @@ class BaseDAO extends DAO{
   public function getTableName(){
     return $this->tableName;
   }
-  public function getAll(){
-    return $this->getListQuery('SELECT * FROM '.$this->tableName);
+  public function getAll($database){
+    return $this->getListQuery('SELECT * FROM '.$this->tableName,$database);
   }
-  public function getAllWhere($query){
-    return $this->getListQuery('SELECT * FROM '.$this->tableName.' WHERE '.$query);
+  public function getOnceWhere($query,$database=null){
+    return $this->getRowQuery('SELECT * FROM '.$this->tableName.' WHERE '.$query,$database);
   }
-  public function getQuery($query){
-    return $this->getListQuery($query);
+  public function getAllWhere($query,$database=null){
+    return $this->getListQuery('SELECT * FROM '.$this->tableName.' WHERE '.$query,$database);
+  }
+  public function getAllQuery($query,$database=null){
+    return $this->getListQuery($query,$database);
+  }
+  public function getOnceQuery($query,$database=null){
+    return $this->getRowQuery($query,$database);
   }
 }
 ?>

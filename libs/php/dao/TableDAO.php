@@ -15,9 +15,9 @@ class TableDAO extends BaseDAO{
   function getTable($tableId,$local=false){
     $result=null;
     if($local){
-      $result = $this->getAllWhere('available=1 AND id='.$tableId);
+      $result = $this->getOnceWhere('available=1 AND id='.$tableId);
     }else{
-      $result = $this->getAllWhere('available=1 AND id='.$tableId.' AND res_id='.DAO::$RES_ID,DAO::$SERVER_DATABASE_NAME);
+      $result = $this->getOnceWhere('available=1 AND id='.$tableId.' AND res_id='.DAO::$RES_ID,DAO::$SERVER_DATABASE_NAME);
     }
     return $result;
   }

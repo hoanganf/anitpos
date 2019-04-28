@@ -33,7 +33,7 @@
       <?php foreach( $resource->orders as $order){ ?>
       <tr data-order-id="<?php echo $order['id']; ?>" data-table-id="<?php echo $order['table_id']; ?>" data-pid="<?php echo $order['product_id']; ?>" data-name="<?php echo $order['product_name']; ?>" data-count="<?php echo $order['count']; ?>" data-price="<?php echo $order['price']; ?>" >
         <td><strong class="rounded background-color--gray padding"><?php echo $order['table_name']; ?></strong></td>
-        <td class="width--full"><strong class="color--blue"><?php echo $order['product_name']; ?></strong></td>
+        <td class="width--full"><strong class="color--blue"><?php echo $order['product_name']; ?></strong><div><?php echo $order['comments']; ?></div></td>
         <td class="text-align--right white-space--nowrap"><span class="rounded background-color--yellow padding"><?php echo $order['price']; ?></span></td>
         <td class="text-align--center"><img onclick="onAddRow(this)" width="24px" height="24px" src="./images/ic_add.png" alt="Them"></td>
         <td class="text-align--center"><img onclick="onDeleteRow(this)" width="24px" height="24px" src="./images/ic_close.png" alt="Xoa"></td>
