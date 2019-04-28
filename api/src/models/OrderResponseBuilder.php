@@ -6,7 +6,7 @@
 		public function build($request){
 			if(!isset($request->body->data)){
 				if(!isset($request->body->number_id)){
-					return $this->createResponse('false','NO ORDER');
+					return $this->createResponse('false',E_NO_ORDER,'NO ORDER');
 				}
 		  }
 			$numberId=isset($request->body->number_id) ? $request->body->number_id : -1;
@@ -24,7 +24,7 @@
 			if($isNewOrder){
 			  $numberId=$numberDAO->createNumberId();
 			  if($numberId<1){
-			    return createResponse(false,'Can not get NumberId');
+			    return createResponse(false,E_NO_NUMBER_ID,'Can not get NumberId');
 			  }
 				//NEW ORDER PROCESSING
 				$isTransactionPassed=true;
@@ -78,14 +78,14 @@
 			}
 			/* close connection */
 			$orderDAO->close();
-			return $this->createResponse("true",$numberId);
+			return $this->createResponse("true",SUCCEED,$numberId);
 		}
 		public function rollBack($orderAdapter,$message){
 			// Rollback transaction\n
 			$orderAdapter->queryNotAutoClose("ROLLBACK");
 			/* close connection */
 			$orderAdapter->close();
-			return createResponse("false",$message);
+			return createResponse("false",E_MYSQL_QUERY_FAIL,$message);
 		}
 	}
 ?>

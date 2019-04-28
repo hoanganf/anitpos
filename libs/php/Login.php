@@ -68,7 +68,6 @@ BoJGw6Yq3e3+ZasROykv8jLrk=';
            "access_token" => $data->access_token
         ));
       }catch (Exception $exception){
-        echo $exception->getMessage();
         if ($exception instanceof ExpiredException) {
           return $this->createLoginToken($data);
         } else {
@@ -87,6 +86,7 @@ BoJGw6Yq3e3+ZasROykv8jLrk=';
       $user=$adapter->login($data->user_name,$data->password);
       if(isset($user)){
         $token = array(
+           'exp'=>time()+60*60*24,
            'user_name' => $user['user_name'],
            'password' => $user['password'],
            'role' => $user['role']
