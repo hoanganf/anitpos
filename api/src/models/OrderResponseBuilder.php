@@ -6,7 +6,7 @@
 		public function build($request){
 			if(!isset($request->body->data)){
 				if(!isset($request->body->number_id)){
-					return $this->createResponse(false,"NO ORDER");
+					return $this->createResponse('false','NO ORDER');
 				}
 		  }
 			$numberId=isset($request->body->number_id) ? $request->body->number_id : -1;

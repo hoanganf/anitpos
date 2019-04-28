@@ -1,7 +1,7 @@
 <?php
 	class ResponseGetter extends Login{
 		public function get($request){
-			//TODO put login here
+			//TODO put login jwt here
 			//$accessPermission=login()
 			$request->user_name='admin';
       switch ($request->pageId) {
