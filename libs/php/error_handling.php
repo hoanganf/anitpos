@@ -1,11 +1,13 @@
 <?php
-define('RESPONSE_MESSAGE','{"status":%s,"message":"%s"}');
+define('RESPONSE_MESSAGE','{"status":%s,"code":%s,"message":"%s"}');
+define('SUCCEED',200);
 define('E_NO_ORDER',300);
 define('E_NO_NUMBER_ID',301);
 define('E_TRANSACTION_FAILT',302);
 define('E_MYSQL_CONNECTION_FAIL',303);
 define('E_MYSQL_QUERY_FAIL',304);
 define('E_DELETE_FAILT',305);
+define('E_NO_LOGIN',306);
 define('E_FILE',320);
 define('E_NI',400);
 function toLog($code,$err_message='',$errfile='', $errline='', $errcontext=''){
@@ -28,7 +30,7 @@ function errorToJson($code,$err_message='',$errfile='', $errline='', $errcontext
       $status=false;
       break;
   }
-  die(sprintf(RESPONSE_MESSAGE,$status,$err_message));
+  die(sprintf(RESPONSE_MESSAGE,$status,$code,$err_message));
 }
 function errorRedirect($code,$err_message='',$errfile='', $errline='', $errcontext=''){
   toLog($code,$err_message,$errfile, $errline, $errcontext);
