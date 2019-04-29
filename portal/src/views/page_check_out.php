@@ -25,8 +25,8 @@
 		<div class="dragbar-container__dragbar"></div>
 		<div class="dragbar-container__right">
 			<div class="dragbar-container__right__top">
-			 <input id="moneyInput" type="text" name="money" placeholder="So tien" required autofocus>
-			 <input class="button--right-rounded hover--green" type="submit" value="Nhap">
+			 <input id="moneyInput" type="text" name="money" placeholder="So tien" class="font-size--normal padding--10" required autofocus>
+			 <input class="button--right-rounded hover--green font-size--normal padding--10" type="submit" value="Nhap">
 		 	</div>
 			<div class="dragbar-container__right__bottom">
 				<div class="soft-keyboard">

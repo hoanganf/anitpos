@@ -2,13 +2,16 @@
     function FormChangeDetector($form) {
         this.$form = $form;
         this.hasFormChanged = false;
+        this.eventFunction= () => {
+            this.checkValues();
+        }
     }
 
     FormChangeDetector.prototype = {
         init: function () {
             var $self = this;
             // onChange/onNoChangeのイベントの発生の制御
-            this.$form.find('input, textarea, select').each(function () {
+            $self.$form.find('input, textarea, select').each(function () {
                 var $this = $(this);
                 var thisTagName = $this[0].tagName.toLowerCase();
                 if (thisTagName === 'input' && ($this.prop('type') === 'radio' || $this.prop('type') === 'checkbox')) {
@@ -17,13 +20,9 @@
                     $this.data('initialValue', $this.val());
                 }
                 if (thisTagName === 'textarea' || (thisTagName === 'input' && $this.prop('type') === 'text')) {
-                    $this.on('keyup', function () {
-                        $self.checkValues();
-                    });
+                    $this.on('keyup', $self.eventFunction);
                 } else {
-                    $this.on('change', function () {
-                        $self.checkValues();
-                    });
+                    $this.on('change', $self.eventFunction);
                 }
             });
         },
@@ -55,11 +54,30 @@
                 this.$form.trigger("onNoChange");
             }
             this.hasFormChanged = isFormChange;
+        },
+        removeEvent: function () {
+          var $self = this;
+          // onChange/onNoChangeのイベントの発生の制御
+          this.$form.find('input, textarea, select').each(function () {
+              var $this = $(this);
+              var thisTagName = $this[0].tagName.toLowerCase();
+              $this.removeData('initialValue');
+              if (thisTagName === 'textarea' || (thisTagName === 'input' && $this.prop('type') === 'text')) {
+                  $this.off('keyup');
+              } else {
+                  $this.off('change');
+              }
+          });
         }
     };
     $.fn.addFormChangeDetector = function () {
         var formChangeDetector = new FormChangeDetector(this);
         formChangeDetector.init();
+        return this;
+    };
+    $.fn.removeFormChangeDetector = function () {
+        var formChangeDetector = new FormChangeDetector(this);
+        formChangeDetector.removeEvent();
         return this;
     };
 })(jQuery);

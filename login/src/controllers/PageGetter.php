@@ -34,7 +34,7 @@
 			if(isset($_GET['from'])){
 				return $_GET['from'];
 			} else {
-				return '../cashier';
+				return '../portal';
 			}
 		}
 	}

@@ -14,7 +14,7 @@ function onSoftKeyboardNumber(value){
     }
 }
 
-$('#moneyInput').on('keyup',function() {
+$('#moneyInput').on('input',function() {
   var $moneyInput=$('#moneyInput');
   if($moneyInput.val() === '0') $moneyInput.val('');
   else $moneyInput.val(formatCurrency($moneyInput.val().replace(/,/g,'')));

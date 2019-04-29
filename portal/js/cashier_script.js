@@ -54,7 +54,7 @@ function onOrderTableItemClick(value,event){
 //page run setting
 //not allow 0 in the first input
 $numberIdInput=$("#numberIdInput");
-$numberIdInput.on('keyup',function(){
+$numberIdInput.on('input',function(){
   console.log($numberIdInput.val());
   if($numberIdInput.val() === '0') $numberIdInput.val('');
 });

@@ -41,7 +41,7 @@ function getOrder(isCheckOutAfterSubmit=false){
        success : function(response) {
          if(response.status === true){
            console.log(response);
-           /*var numberId=parseInt(response.message);
+           var numberId=parseInt(response.message);
            if(numberId > 0 ){
              if(isCheckOutAfterSubmit){
                location.href='index.php?pageId=checkOut&numberId='+response.message;
@@ -50,9 +50,9 @@ function getOrder(isCheckOutAfterSubmit=false){
              }
            }else if(numberId === 0){//no number ID (edit mode)
              location.href='index.php?pageId=cashier';
-           }*/
+           }
          }else{
-           if(response.code == 306) location.href='../login/';
+           if(response.code == 306) location.href='../login?from=../portal/?pageId=order';
            else showAlertDialog('That bai',response.message,false,false);
          }
        },

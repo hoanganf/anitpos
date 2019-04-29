@@ -1,7 +1,19 @@
 <?php
   //echo 'PageGetter: '.$_SERVER["PHP_SELF"].'<br/>';
-	class PageGetter{
+	class PageGetter extends Login{
 		public function get($pageId){
+			if(isset($_COOKIE['pos_access_token'])){
+				$request=new PageResource();
+				$request->access_token=$_COOKIE['pos_access_token'];
+				$loginResult=json_decode($this->login($request));
+				if(!$loginResult->status){
+					$this->redirect('../login/?from=../portal');
+					return;
+				}
+			}else{
+				$this->redirect('../login/?from=../portal');
+				return;
+			}
       $pageResource=new PageResource();
       //TODO get restaurant name from database
       $pageResource->pageTitle='Restaurant';
@@ -33,6 +45,10 @@
 						trigger_error("Xay ra su co xin vui long lien he quan ly",E_NO_NUMBER_ID);
 					}
 					break;
+				case 'product':
+					$pageBuilder=new ProductPageBuilder();
+					$pageResource->isProduct=TRUE;
+					break;
         default:
           $pageBuilder=new CashierPageBuilder();
 					//TODO have to set value to another page
@@ -55,5 +71,8 @@
       }
     	return $files;
     }
+		public function redirect($url){
+			header('Location: '.$url);
+		}
 	}
 ?>

@@ -29,8 +29,8 @@
 		<div id="right_container" class="dragbar-container__right">
 			<form action="index.php" method="get" class="dragbar-container__right__top">
  			 <input type="hidden" name="pageId" value="checkOut"/>
-			 <input id="numberIdInput" type="number" name="numberId" placeholder="Ma goi mon" required autofocus>
-			 <input class="button--right-rounded hover--green" type="submit" value="OK">
+			 <input id="numberIdInput" type="number" name="numberId" class="font-size--normal padding--10" placeholder="Ma goi mon" required autofocus>
+			 <input class="button--right-rounded hover--green font-size--normal padding--10" type="submit" value="OK">
 		 	</form>
 			<div class="soft-keyboard">
         <div class="hover--green" onclick="onSoftKeyboardNumber(0)">0</div>

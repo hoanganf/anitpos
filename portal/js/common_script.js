@@ -22,17 +22,6 @@ function showLoader(isShow=true){
     loader.style.display="none";
   }
 }
-function makeNumberMask(element){
-  element.value=formatCurrency(element.value.replace(/,/g,''));
-}
-var loadFileToImage = function(event) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var output = document.getElementById('image_display');
-      output.src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-};
 /* @Deprecated*/
 function ajaxLoadPage(ajax_link,functionX){
   var xhttp = null;
@@ -65,6 +54,20 @@ var dragBarContainerLeft=$('.dragbar-container__left');
 if(dragBar && dragBarContainerLeft){
   dragBar.applyDrag($('.dragbar-container__left'));
 }
+/** IMAGE **/
+// image upload onclick
+$('input[name=image_uploader]').on('change',function(){
+  console.log('hehrhe');
+  var $this=$(this);
+  var reader = new FileReader();
+  reader.onload = function(){
+    $('img[name=image_displayer]').attr('src',reader.result);
+  };
+  reader.readAsDataURL($this.prop('files')[0]);
+});
+$('img[name=image_displayer]').on('click',function() {
+  $('input[name=image_uploader]').trigger('click');
+});
 /*
 function setToDrag(barVar,leftContainerVar){
   console.log('here');

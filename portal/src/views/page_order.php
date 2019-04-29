@@ -43,7 +43,7 @@
 	</div>
 	<div class="dragbar-container__dragbar"></div>
 	<div class="dragbar-container__right">
-		<div id="category_menu" class="scroll-menu padding--bottom--15">
+		<div id="category_menu" class="scroll-menu margin--bottom">
     <?php foreach( $resource->categories as $category){ ?>
         <a class="hover--gray <?php if($resource->cateId === $category['id']) echo 'active'; ?>" data-id="<?php echo $category['id']; ?>" href="#" onclick="loadOrderProducts(this);return false;"><?php echo $category['name']; ?></a>
     <?php  } ?>
@@ -52,7 +52,7 @@
 			<div id="order_center_list" class="grid-container">
         <?php include 'view_order_products_div.php'; ?>
       </div>
-			<div id="order_bottom_list" class="grid-container">
+			<div id="order_bottom_list" class="grid-container padding--top">
         <?php include 'view_order_product_comments_div.php'; ?>
       </div>
 		</div>
