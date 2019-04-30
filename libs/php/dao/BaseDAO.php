@@ -7,7 +7,7 @@ class BaseDAO extends DAO{
   public function getTableName(){
     return $this->tableName;
   }
-  public function getAll($database){
+  public function getAll($database=null){
     return $this->getListQuery('SELECT * FROM '.$this->tableName,$database);
   }
   public function getOnceWhere($query,$database=null){

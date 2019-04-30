@@ -75,7 +75,7 @@ class DAO{
           $this->close();
           return $queryResult;
         case "insert":
-          $queryResult=mysqli_insert_id($this->connection);
+          $queryResult=$this->getLastInsertId();
           $this->close();
           return $queryResult;
         case "queryNotAutoClose":
@@ -99,7 +99,7 @@ class DAO{
   }
 
   public function fetchArray($queryResult){
-  	return mysqli_fetch_array($queryResult);
+  	return mysqli_fetch_array($queryResult,MYSQLI_ASSOC);
   }
 
   public function convertQueryResultToList($queryResult){

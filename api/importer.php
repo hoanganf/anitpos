@@ -23,6 +23,8 @@ include_once constant("DAO_DIR").'BaseDAO.php';
 include_once constant("DAO_DIR").'UserDAO.php';
 include_once constant("DAO_DIR").'Data.php';
 
+include_once constant("MODEL_DIR").'ResponseBuilder.php';
+
 include_once constant("CONTROLLER_DIR").'ResponseGetter.php';
 include_once constant("LIB_DIR").'error_handling.php';
 

@@ -1,9 +1,9 @@
 <?php
-class CategoryDAO extends BaseDAO{
+class UnitDAO extends BaseDAO{
   function __construct(){
-     parent::__construct("category");
+     parent::__construct("`unit`");
   }
-  function getCategories($type='P',$local=false){
+  function getUnits($type='P',$local=false){
     $result=null;
     if($local){
       $result = $this->getAllWhere('available=1 AND type=\''.$type.'\'');
@@ -13,7 +13,7 @@ class CategoryDAO extends BaseDAO{
     return $result;
   }
 
-  // for tool
+  //for tool
   function getAllWithoutAvailable($type='P',$local=false){
     $result=null;
     if($local){
@@ -34,24 +34,22 @@ class CategoryDAO extends BaseDAO{
     return $result;
   }
 
-  function create($category,$requester){
-    $sql='INSERT INTO category (name, type, description,available, image, creator,updater) ';
-    $sql.= 'VALUES (\''.$category['name'].'\', \''.$category['type'].'\', ';
-    $sql.= '\''.$category['description'].'\','.$category['available'].',\'';
-    $sql.= $category['image'].'\', ';
-    $sql.= '\''.$requester.'\',\''.$requester.'\')';
+  function create($unit,$requester){
+    $sql='INSERT INTO unit (name, type, description,available, creator,updater) ';
+    $sql.= 'VALUES (\''.$unit['name'].'\', \''.$unit['type'].'\', ';
+    $sql.= '\''.$unit['description'].'\','.$unit['available'].',\'';
+    $sql.= $requester.'\',\''.$requester.'\')';
     return $this->insert($sql,DAO::$SERVER_DATABASE_NAME);
   }
-  function edit($category,$requester){
-    $sql='UPDATE category SET ';
-    $sql.= 'name=\''.$category['name'].'\', ';
-    $sql.= 'type=\''.$category['type'].'\', ';
-    $sql.= 'description=\''.$category['description'].'\', ';
-    $sql.= 'available='.$category['available'].', ';
-    $sql.= 'image=\''.$category['image'].'\', ';
+  function edit($unit,$requester){
+    $sql='UPDATE unit SET ';
+    $sql.= 'name=\''.$unit['name'].'\', ';
+    $sql.= 'type=\''.$unit['type'].'\', ';
+    $sql.= 'description=\''.$unit['description'].'\', ';
+    $sql.= 'available='.$unit['available'].', ';
     $sql.= 'updater=\''.$requester.'\',';
     $sql.= 'last_updated_date=now()';
-    $sql.= ' WHERE id='.$category['id'];
+    $sql.= ' WHERE id='.$unit['id'];
     return $this->query($sql,DAO::$SERVER_DATABASE_NAME);
   }
 }
