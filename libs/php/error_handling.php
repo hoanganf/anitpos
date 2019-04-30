@@ -8,6 +8,7 @@ define('E_MYSQL_CONNECTION_FAIL',303);
 define('E_MYSQL_QUERY_FAIL',304);
 define('E_DELETE_FAILT',305);
 define('E_NO_LOGIN',306);
+define('E_NO_PRODUCT',307);
 define('E_FILE',320);
 define('E_NI',400);
 function toLog($code,$err_message='',$errfile='', $errline='', $errcontext=''){
