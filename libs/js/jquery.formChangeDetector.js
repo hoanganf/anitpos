@@ -28,7 +28,7 @@
         },
         checkValues: function () {
             var isFormChange = false;
-            this.$form.find('input:not(:submit, :button), textarea, select').filter(':visible:enabled').each(function () {
+            this.$form.find('input:not(:submit, :button), textarea, select').filter(':enabled').each(function () {
                 var $this = $(this);
 
                 if ($this.prop('type') === 'radio' || $this.prop('type') === 'checkbox') {

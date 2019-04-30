@@ -21,6 +21,31 @@ class ProductDAO extends BaseDAO{
     }
     return $result;
   }
+  // for tool
+  function create($product,$requester){
+    $sql='INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) ';
+    $sql.= 'VALUES (\''.$product['name'].'\', '.$product['category_id'].', '.$product['unit_id'].', ';
+    $sql.= $product['price'].', \''.$product['description'].'\','.$product['available'].',\'';
+    $sql.= $product['image'].'\', '.$product['default_status'].','.$product['add_count'].',\'';
+    $sql.= $requester.'\',\''.$requester.'\')';
+    return $this->insert($sql,DAO::$SERVER_DATABASE_NAME);
+  }
+  function edit($product,$requester){
+    $sql='UPDATE product SET ';
+    $sql.= 'name=\''.$product['name'].'\', ';
+    $sql.= 'category_id='.$product['category_id'].', ';
+    $sql.= 'unit_id='.$product['unit_id'].', ';
+    $sql.= 'price='.$product['price'].', ';
+    $sql.= 'description=\''.$product['description'].'\', ';
+    $sql.= 'available='.$product['available'].', ';
+    $sql.= 'image=\''.$product['image'].'\', ';
+    $sql.= 'default_status='.$product['default_status'].',';
+    $sql.= 'add_count='.$product['add_count'].',';
+    $sql.= 'updater=\''.$requester.'\',';
+    $sql.= 'last_updated_date=now()';
+    $sql.= ' WHERE id='.$product['id'];
+    return $this->query($sql,DAO::$SERVER_DATABASE_NAME);
+  }
   //get all accept available=0
   function getProductWithoutAvailable($productId,$local=false){
     $result=null;

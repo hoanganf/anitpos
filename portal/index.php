@@ -29,6 +29,8 @@
 	include_once constant("MODEL_DIR").'OrderPageBuilder.php';
 	include_once constant("MODEL_DIR").'CheckOutPageBuilder.php';
 	include_once constant("MODEL_DIR").'ProductPageBuilder.php';
+	include_once constant("MODEL_DIR").'CategoryPageBuilder.php';
+	include_once constant("MODEL_DIR").'UnitPageBuilder.php';
 
 	include_once constant("CONTROLLER_DIR").'PageGetter.php';
 

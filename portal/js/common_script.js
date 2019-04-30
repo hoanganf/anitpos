@@ -1,3 +1,10 @@
+function onNotifiClose(element){
+    var $parentElement = $(element).parent();
+    $parentElement.addClass("opacity--hide");
+    setTimeout(function(){
+      $parentElement.remove();
+    }, 200);
+}
 function showAlertDialog(title,message,okButton=false,cancelButton=false){
   $modalDialog=$(".modal-dialog");
   $modalDialog.find('.modal-dialog__content__title').text(title);
@@ -56,7 +63,43 @@ if(dragBar && dragBarContainerLeft){
 }
 /** IMAGE **/
 // image upload onclick
-$('input[name=image_uploader]').on('change',function(){
+function uploadImageChange(elem){
+  $this=$(elem);
+  if($this.prop('files')[0] === undefined) return;
+  var formData = new FormData();
+  formData.append("fileToUpload", $this.prop('files')[0]);
+  formData.append("folder", 'pos');
+  $.ajax({
+      url: "../upload/paste.php",
+      type: "POST",
+      data : formData,
+      processData: false,
+      contentType: false,
+      beforeSend: function(xhr) {
+        $('.loader').css('display','inline-block');
+        $('#label_image').css('display','none');
+      },
+      success: function(response){
+        $('.loader').css('display','none');
+        $('#label_image').css('display','inline-block');
+        console.log(response);
+        var jsonResponse=JSON.parse(response);
+        if(jsonResponse.status === true){
+          $('img[name=image_displayer]').attr('src','../upload/'+jsonResponse.file_path);
+          $('input[name=image]').val(jsonResponse.file_path);
+        }else{
+          if(jsonResponse.code == 306) location.href='../login?from='+location.href;
+          else showAlertDialog('That bai',jsonResponse.message,false,false);
+        }
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+        $('.loader').css('display','none');
+        $('#label_image').css('display','inline-block');
+        console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        showAlertDialog('That bai',xhr.responseText,false,false);
+      }
+  });
+  /*
   console.log('hehrhe');
   var $this=$(this);
   var reader = new FileReader();
@@ -64,10 +107,8 @@ $('input[name=image_uploader]').on('change',function(){
     $('img[name=image_displayer]').attr('src',reader.result);
   };
   reader.readAsDataURL($this.prop('files')[0]);
-});
-$('img[name=image_displayer]').on('click',function() {
-  $('input[name=image_uploader]').trigger('click');
-});
+  */
+}
 /*
 function setToDrag(barVar,leftContainerVar){
   console.log('here');

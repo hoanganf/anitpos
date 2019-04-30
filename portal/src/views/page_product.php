@@ -23,6 +23,8 @@
           <th>Tinh trang</th>
           <th>Che bien</th>
           <th>SL/Goi mon</th>
+          <th>Tao ngay</th>
+					<th>Sua ngay</th>
         </tr>
         <?php
 	      foreach($resource->products as $product){ ?>
@@ -30,7 +32,7 @@
           data-price="<?php echo $product['price']; ?>" data-description="<?php echo $product['description']; ?>" data-available="<?php echo $product['available']?>"
           data-image="<?php echo $product['image']; ?>" data-status="<?php echo $product['default_status']; ?>" data-add-count="<?php echo $product['add_count']; ?>">
           <td class="text-align--center font-size--normal"><?php echo $product['id'];?></td>
-          <td class="text-align--center"><img width="64px" height="64px" src="./images/<?php echo !empty($product['image']) ? $product['image'] : "ic_no_image.png";  ?>"/></td>
+          <td class="text-align--center"><img width="64px" height="64px" src="../upload/<?php echo !empty($product['image']) ? $product['image'] : "files/pos/ic_no_image.png";  ?>"/></td>
           <td class="display--flex flex-wrap--nowrap width--full flex-direction--row">
             <div><strong class="color--blue"><?php echo $product['name'];?></strong><?php
             if(isset($product['description']) && strlen($product['description'])>0){ ?>
@@ -42,13 +44,31 @@
           <td class="text-align--center"><span class="circle background-color--<?php echo $product['available']==0 ? 'red':'green';?>"/></td>
           <td class="text-align--center"><span class="circle background-color--<?php echo $product['default_status']==0 ? 'red':'green';?>"></td>
           <td class="text-align--center"><?php echo $product['add_count'];?></td>
+          <td>
+						<div class="rounded background-color--blue padding"><?php echo $category['creator'];?><br/><?php echo $category['created_date']; ?></div>
+	        </td>
+					<td>
+						<div class="rounded background-color--blue padding"><?php echo $category['updater'];?><br/><?php echo $category['last_updated_date']; ?></div>
+	        </td>
         </tr>
 		<?php } ?>
   		</table>
   	</div>
 		<div class="dragbar-container__dragbar"></div>
   	<div class="dragbar-container__right">
-  		<form id="product_form" class="row-divide padding background-color--lightgray border--gray rounded" onsubmit="return removeNumberMask();" action="index.php?pageId=product" method="POST" enctype="multipart/form-data">
+      <?php
+      if(!empty($resource->errorMessage)){ ?>
+      <div class="alert background-color--red rounded">
+         <span class="alert__closebtn" onclick="onNotifiClose(this)">&times;</span>
+         <strong>Loi!</strong> <?php echo $resource->errorMessage; ?>
+      </div>
+      <?php } else if(!empty($resource->message)){ ?>
+      <div class="alert background-color--green rounded">
+         <span class="alert__closebtn" onclick="onNotifiClose(this)">&times;</span>
+         <?php echo $resource->message;?>
+      </div>
+      <?php }?>
+  		<form id="product_form" class="row-divide padding background-color--lightgray border--gray rounded" action="index.php?pageId=product" method="POST" enctype="multipart/form-data">
   			<div class="row-divide__col-50">
   	    <!--label for="name">Ma san pham</label-->
   	    <input type="hidden" name="id" placeholder="Ma san pham" readonly>
@@ -100,17 +120,19 @@
               </label>
             </div>
           </div>
-    			<label for="imageToUpload" class="display--block margin">Hinh anh</label>
+          <div class="display--block margin">
+            <label for="imageToUpload" class="display--inline-block" id="label_image">Hinh anh</label><div class="loader color--blue display--inline-block"></div>
+          </div>
     			<div class="padding display--inline-block">
-    				<img class="width--full height--auto" name="image_displayer" src="./images/ic_no_image.png"/>
-    		    <input type="file" name="image_uploader" placeholder="Anh" accept=".jpg, .jpeg, .png, .gif"/>
+    				<img class="width--full height--auto border--gray rounded" name="image_displayer" src="../upload/files/pos/ic_no_image.png"/>
+    		    <input type="file" name="image_uploader" placeholder="Anh" onChange="uploadImageChange(this)" accept=".jpg, .jpeg, .png, .gif"/>
     				<input type="hidden" name="image" value=""/>
     			</div>
 
     		</div>
         <div class="row-divide width--full margin--top sticky--bottom">
-          <button id="btn_edit" name="action" value="edit" class="row-divide__col-50 hover--blue rounded padding" onclick="document.getElementById('mode').value='addProduct';">Sua</button>
-          <button id="btn_add" name="action" value="add" class="row-divide__col-50 hover--green rounded padding" onclick="document.getElementById('mode').value='addProduct';">Them</button>
+          <button id="btn_edit" name="action" value="edit" class="row-divide__col-50 hover--blue rounded padding">Sua</button>
+          <button id="btn_add" name="action" value="add" class="row-divide__col-50 hover--green rounded padding">Them</button>
         </div>
     	</form>
   	</div>

@@ -2,19 +2,21 @@
   //echo 'PageGetter: '.$_SERVER["PHP_SELF"].'<br/>';
 	class PageGetter extends Login{
 		public function get($pageId){
+			$loginResult=null;
 			if(isset($_COOKIE['pos_access_token'])){
 				$request=new PageResource();
 				$request->access_token=$_COOKIE['pos_access_token'];
 				$loginResult=json_decode($this->login($request));
 				if(!$loginResult->status){
-					$this->redirect('../login/?from=../portal');
+					$this->redirect('../login/?from='.$_SERVER['REQUEST_URI']);
 					return;
 				}
 			}else{
-				$this->redirect('../login/?from=../portal');
+				$this->redirect('../login/?from='.$_SERVER['REQUEST_URI']);
 				return;
 			}
       $pageResource=new PageResource();
+			$pageResource->requester=$loginResult->user_name;
       //TODO get restaurant name from database
       $pageResource->pageTitle='Restaurant';
       switch ($pageId) {
@@ -48,6 +50,14 @@
 				case 'product':
 					$pageBuilder=new ProductPageBuilder();
 					$pageResource->isProduct=TRUE;
+					break;
+				case 'category':
+					$pageBuilder=new CategoryPageBuilder();
+					$pageResource->isCategory=TRUE;
+					break;
+				case 'unit':
+					$pageBuilder=new UnitPageBuilder();
+					$pageResource->isUnit=TRUE;
 					break;
         default:
           $pageBuilder=new CashierPageBuilder();

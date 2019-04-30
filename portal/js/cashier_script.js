@@ -35,13 +35,7 @@ function deleteOrder(event,numberId){
   showAlertDialog('Xac nhan thuc hien','Ban co muon xoa khong, lich su se duoc luu lai tren may chu',true,true);
   event.stopPropagation();
 }
-function onNotifiClose(element){
-    var $parentElement = $(element).parent();
-    $parentElement.addClass("opacity--hide");
-    setTimeout(function(){
-      $parentElement.remove();
-    }, 200);
-}
+
 function onSoftKeyboardNumber(value){
   if($numberIdInput.val().length === 0 && value === 0) return;
   $numberIdInput.val($numberIdInput.val()+value);

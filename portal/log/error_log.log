@@ -8697,3 +8697,1572 @@
     [resrouce] => 
 )
 
+2019-04-30 06:56:52 - Error: [1024], [SQL]:INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Mon test', 1, 9, 1,234, 'Test',1,'files/pos/product_2.jpg', 1,1,'hoang','hoang')[Query Error description]: Column count doesn't match value count at row 1 in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => insert
+    [args] => Array
+        (
+            [0] => INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Mon test', 1, 9, 1,234, 'Test',1,'files/pos/product_2.jpg', 1,1,'hoang','hoang')
+            [1] => anit_pos_server
+        )
+
+    [queryResult] => 
+)
+
+2019-04-30 06:59:08 - Error: [1024], [SQL]:INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Mon test', 1, 9, 1,234, 'Test1',1,'files/pos/category_2.jpg', 1,1,'hoang','hoang')[Query Error description]: Column count doesn't match value count at row 1 in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => insert
+    [args] => Array
+        (
+            [0] => INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Mon test', 1, 9, 1,234, 'Test1',1,'files/pos/category_2.jpg', 1,1,'hoang','hoang')
+            [1] => anit_pos_server
+        )
+
+    [queryResult] => 
+)
+
+2019-04-30 07:11:11 - Error: [1024], [SQL]:INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Test product name', 1, 9, 50,000, 'not mention',0,'', 0,1,'hoang','hoang')[Query Error description]: Column count doesn't match value count at row 1 in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => insert
+    [args] => Array
+        (
+            [0] => INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Test product name', 1, 9, 50,000, 'not mention',0,'', 0,1,'hoang','hoang')
+            [1] => anit_pos_server
+        )
+
+    [queryResult] => 
+)
+
+2019-04-30 07:11:50 - Error: [1024], [SQL]:INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Canh chua cá lóc', 1, 12, 50,000, 'Món ăn dân dã có ở khắp mọi vùng miền ở Việt Nama',1,'product_2.jpg', 0,1,'hoang','hoang')[Query Error description]: Column count doesn't match value count at row 1 in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => insert
+    [args] => Array
+        (
+            [0] => INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Canh chua cá lóc', 1, 12, 50,000, 'Món ăn dân dã có ở khắp mọi vùng miền ở Việt Nama',1,'product_2.jpg', 0,1,'hoang','hoang')
+            [1] => anit_pos_server
+        )
+
+    [queryResult] => 
+)
+
+2019-04-30 07:12:43 - Error: [1024], [SQL]:INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Canh chua cá lóc', 1, 12, 50,000, 'Món ăn dân dã có ở khắp mọi vùng miền ở Việt Nam1',1,'product_2.jpg', 0,1,'hoang','hoang')[Query Error description]: Column count doesn't match value count at row 1 in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => insert
+    [args] => Array
+        (
+            [0] => INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Canh chua cá lóc', 1, 12, 50,000, 'Món ăn dân dã có ở khắp mọi vùng miền ở Việt Nam1',1,'product_2.jpg', 0,1,'hoang','hoang')
+            [1] => anit_pos_server
+        )
+
+    [queryResult] => 
+)
+
+2019-04-30 07:13:09 - Error: [1024], [SQL]:INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Canh chua cá lóc', 1, 12, 50,000, 'Món ăn dân dã có ở khắp mọi vùng miền ở Việt Nam11',1,'', 0,1,'hoang','hoang')[Query Error description]: Column count doesn't match value count at row 1 in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => insert
+    [args] => Array
+        (
+            [0] => INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Canh chua cá lóc', 1, 12, 50,000, 'Món ăn dân dã có ở khắp mọi vùng miền ở Việt Nam11',1,'', 0,1,'hoang','hoang')
+            [1] => anit_pos_server
+        )
+
+    [queryResult] => 
+)
+
+2019-04-30 07:13:17 - Error: [1024], [SQL]:INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Canh chua cá lóc', 1, 12, 50,000, 'Món ăn dân dã có ở khắp mọi vùng miền ở Việt Nam1',1,'product_2.jpg', 0,1,'hoang','hoang')[Query Error description]: Column count doesn't match value count at row 1 in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => insert
+    [args] => Array
+        (
+            [0] => INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Canh chua cá lóc', 1, 12, 50,000, 'Món ăn dân dã có ở khắp mọi vùng miền ở Việt Nam1',1,'product_2.jpg', 0,1,'hoang','hoang')
+            [1] => anit_pos_server
+        )
+
+    [queryResult] => 
+)
+
+2019-04-30 07:14:02 - Error: [1024], [SQL]:INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Canh chua cá lóc', 1, 12, 50,000, 'Món ăn dân dã có ở khắp mọi vùng miền ở Việt Nam11',1,'', 0,1,'hoang','hoang')[Query Error description]: Column count doesn't match value count at row 1 in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => insert
+    [args] => Array
+        (
+            [0] => INSERT INTO product (name, category_id, unit_id, price, description,available, image, default_status, add_count,creator,updater) VALUES ('Canh chua cá lóc', 1, 12, 50,000, 'Món ăn dân dã có ở khắp mọi vùng miền ở Việt Nam11',1,'', 0,1,'hoang','hoang')
+            [1] => anit_pos_server
+        )
+
+    [queryResult] => 
+)
+
+2019-04-30 07:45:29 - Error: [8], Undefined variable: addProduct in /Users/anit/Projects/web/anit_pos/portal/src/models/ProductPageBuilder.php on line 21, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [requester] => hoang
+                    [pageTitle] => Restaurant
+                    [isProduct] => 1
+                )
+
+        )
+
+    [productAdapter] => ProductDAO Object
+        (
+            [tableName:BaseDAO:private] => product
+            [connection:DAO:private] => 
+        )
+
+    [default_status] => 1
+    [available] => 1
+    [addCount] => 1
+    [updateStatus] => 
+    [editProduct] => Array
+        (
+            [id] => 1
+            [name] => Canh khổ qua nhồi thịt
+            [category_id] => 1
+            [unit_id] => 12
+            [price] => 220000
+            [description] => Món ăn đặc trưng của người miền Bắc, theo truyền thuyết ăn món này mọi đau khổ sẽ qua
+            [image] => files/pos/product_5.jpg
+            [default_status] => 1
+            [available] => 1
+            [add_count] => 1
+        )
+
+)
+
+2019-04-30 07:48:11 - Error: [8], Undefined index: upda in /Users/anit/Projects/web/anit_pos/libs/php/dao/ProductDAO.php on line 44, Variables:Array
+(
+    [product] => Array
+        (
+            [id] => 1
+            [name] => Canh khổ qua nhồi thịt
+            [category_id] => 1
+            [unit_id] => 12
+            [price] => 220000
+            [description] => Món ăn đặc trưng của người miền Bắc, theo truyền thuyết ăn món này mọi đau khổ sẽ qua
+            [image] => files/pos/category_12.jpg
+            [default_status] => 0
+            [available] => 1
+            [add_count] => 1
+        )
+
+    [requester] => hoang
+    [sql] => UPDATE product SET name='Canh khổ qua nhồi thịt', category_id=1, unit_id=12, price=220000, description='Món ăn đặc trưng của người miền Bắc, theo truyền thuyết ăn món này mọi đau khổ sẽ qua', available=1, image='files/pos/category_12.jpg', default_status=0,add_count=1,
+)
+
+2019-04-30 07:48:57 - Error: [1024], [SQL]:UPDATE product SET name='Canh khổ qua nhồi thịt', category_id=1, unit_id=12, price=220000, description='Món ăn đặc trưng của người miền Bắc, theo truyền thuyết ăn món này mọi đau khổ sẽ qua', available=1, image='files/pos/category_12.jpg', default_status=0,add_count=1,updater=hoang,last_updated_date=now() WHERE id=1[Query Error description]: Unknown column 'hoang' in 'field list' in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 68, Variables:Array
+(
+    [functionName] => query
+    [args] => Array
+        (
+            [0] => UPDATE product SET name='Canh khổ qua nhồi thịt', category_id=1, unit_id=12, price=220000, description='Món ăn đặc trưng của người miền Bắc, theo truyền thuyết ăn món này mọi đau khổ sẽ qua', available=1, image='files/pos/category_12.jpg', default_status=0,add_count=1,updater=hoang,last_updated_date=now() WHERE id=1
+            [1] => anit_pos_server
+        )
+
+    [queryResult] => 
+)
+
+2019-04-30 08:16:28 - Error: [8], Undefined variable: categories in /Users/anit/Projects/web/anit_pos/portal/src/views/page_category.php on line 17, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [requester] => hoang
+                    [pageTitle] => Restaurant
+                    [isCategory] => 1
+                    [categories] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [id] => 1
+                                    [name] => Món chiên
+                                    [available] => 1
+                                    [image] => category_12.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [1] => Array
+                                (
+                                    [id] => 2
+                                    [name] => Lẩu
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [2] => Array
+                                (
+                                    [id] => 3
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => category_12.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [3] => Array
+                                (
+                                    [id] => 4
+                                    [name] => Đồng quê
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [4] => Array
+                                (
+                                    [id] => 5
+                                    [name] => Bia
+                                    [available] => 1
+                                    [image] => category_12.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [5] => Array
+                                (
+                                    [id] => 6
+                                    [name] => Nước giải khát
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [6] => Array
+                                (
+                                    [id] => 7
+                                    [name] => Rượu
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [7] => Array
+                                (
+                                    [id] => 8
+                                    [name] => Món tráng miệng
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [8] => Array
+                                (
+                                    [id] => 9
+                                    [name] => Đồ pha chế
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [9] => Array
+                                (
+                                    [id] => 10
+                                    [name] => Khác
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [10] => Array
+                                (
+                                    [id] => 11
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [11] => Array
+                                (
+                                    [id] => 12
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => category_12.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [12] => Array
+                                (
+                                    [id] => 13
+                                    [name] => Đồ pha chế
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [13] => Array
+                                (
+                                    [id] => 14
+                                    [name] => Hải sản 1
+                                    [available] => 1
+                                    [image] => category_14.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [14] => Array
+                                (
+                                    [id] => 15
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [15] => Array
+                                (
+                                    [id] => 16
+                                    [name] => Hải sản
+                                    [available] => 0
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [16] => Array
+                                (
+                                    [id] => 17
+                                    [name] => Hải sản
+                                    [available] => 0
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [17] => Array
+                                (
+                                    [id] => 18
+                                    [name] => Hải sản
+                                    [available] => 0
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [18] => Array
+                                (
+                                    [id] => 19
+                                    [name] => Đồng quê
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [productAdapter] => ProductDAO Object
+        (
+            [tableName:BaseDAO:private] => product
+            [connection:DAO:private] => 
+        )
+
+    [adapter] => CategoryDAO Object
+        (
+            [tableName:BaseDAO:private] => category
+            [connection:DAO:private] => 
+        )
+
+)
+
+2019-04-30 08:19:20 - Error: [2], Invalid argument supplied for foreach() in /Users/anit/Projects/web/anit_pos/portal/src/views/page_category.php on line 73, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [requester] => hoang
+                    [pageTitle] => Restaurant
+                    [isCategory] => 1
+                    [categories] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [id] => 1
+                                    [name] => Món chiên
+                                    [available] => 1
+                                    [image] => category_12.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [1] => Array
+                                (
+                                    [id] => 2
+                                    [name] => Lẩu
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [2] => Array
+                                (
+                                    [id] => 3
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => category_12.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [3] => Array
+                                (
+                                    [id] => 4
+                                    [name] => Đồng quê
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [4] => Array
+                                (
+                                    [id] => 5
+                                    [name] => Bia
+                                    [available] => 1
+                                    [image] => category_12.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [5] => Array
+                                (
+                                    [id] => 6
+                                    [name] => Nước giải khát
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [6] => Array
+                                (
+                                    [id] => 7
+                                    [name] => Rượu
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [7] => Array
+                                (
+                                    [id] => 8
+                                    [name] => Món tráng miệng
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [8] => Array
+                                (
+                                    [id] => 9
+                                    [name] => Đồ pha chế
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [9] => Array
+                                (
+                                    [id] => 10
+                                    [name] => Khác
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [10] => Array
+                                (
+                                    [id] => 11
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => category_2.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [11] => Array
+                                (
+                                    [id] => 12
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => category_12.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [12] => Array
+                                (
+                                    [id] => 13
+                                    [name] => Đồ pha chế
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [13] => Array
+                                (
+                                    [id] => 14
+                                    [name] => Hải sản 1
+                                    [available] => 1
+                                    [image] => category_14.jpg
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [14] => Array
+                                (
+                                    [id] => 15
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [15] => Array
+                                (
+                                    [id] => 16
+                                    [name] => Hải sản
+                                    [available] => 0
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [16] => Array
+                                (
+                                    [id] => 17
+                                    [name] => Hải sản
+                                    [available] => 0
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [17] => Array
+                                (
+                                    [id] => 18
+                                    [name] => Hải sản
+                                    [available] => 0
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [18] => Array
+                                (
+                                    [id] => 19
+                                    [name] => Đồng quê
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [productAdapter] => ProductDAO Object
+        (
+            [tableName:BaseDAO:private] => product
+            [connection:DAO:private] => 
+        )
+
+    [adapter] => CategoryDAO Object
+        (
+            [tableName:BaseDAO:private] => category
+            [connection:DAO:private] => 
+        )
+
+    [category] => Array
+        (
+            [id] => 19
+            [name] => Đồng quê
+            [available] => 1
+            [image] => 
+            [type] => P
+            [creator] => 
+            [created_date] => 2019-04-22 01:14:09
+            [updater] => 
+            [last_updated_date] => 2019-04-23 02:44:35
+        )
+
+)
+
+2019-04-30 08:20:46 - Error: [2], Invalid argument supplied for foreach() in /Users/anit/Projects/web/anit_pos/portal/src/views/page_category.php on line 73, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [requester] => hoang
+                    [pageTitle] => Restaurant
+                    [isCategory] => 1
+                    [categories] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [id] => 1
+                                    [name] => Món chiên
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [1] => Array
+                                (
+                                    [id] => 2
+                                    [name] => Lẩu
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [2] => Array
+                                (
+                                    [id] => 3
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [3] => Array
+                                (
+                                    [id] => 4
+                                    [name] => Đồng quê
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [4] => Array
+                                (
+                                    [id] => 5
+                                    [name] => Bia
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [5] => Array
+                                (
+                                    [id] => 6
+                                    [name] => Nước giải khát
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [6] => Array
+                                (
+                                    [id] => 7
+                                    [name] => Rượu
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [7] => Array
+                                (
+                                    [id] => 8
+                                    [name] => Món tráng miệng
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [8] => Array
+                                (
+                                    [id] => 9
+                                    [name] => Đồ pha chế
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [9] => Array
+                                (
+                                    [id] => 10
+                                    [name] => Khác
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [10] => Array
+                                (
+                                    [id] => 11
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [11] => Array
+                                (
+                                    [id] => 12
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [12] => Array
+                                (
+                                    [id] => 13
+                                    [name] => Đồ pha chế
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [13] => Array
+                                (
+                                    [id] => 14
+                                    [name] => Hải sản 1
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [14] => Array
+                                (
+                                    [id] => 15
+                                    [name] => Hải sản
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [15] => Array
+                                (
+                                    [id] => 16
+                                    [name] => Hải sản
+                                    [available] => 0
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [16] => Array
+                                (
+                                    [id] => 17
+                                    [name] => Hải sản
+                                    [available] => 0
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [17] => Array
+                                (
+                                    [id] => 18
+                                    [name] => Hải sản
+                                    [available] => 0
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [18] => Array
+                                (
+                                    [id] => 19
+                                    [name] => Đồng quê
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [productAdapter] => ProductDAO Object
+        (
+            [tableName:BaseDAO:private] => product
+            [connection:DAO:private] => 
+        )
+
+    [adapter] => CategoryDAO Object
+        (
+            [tableName:BaseDAO:private] => category
+            [connection:DAO:private] => 
+        )
+
+    [category] => Array
+        (
+            [id] => 19
+            [name] => Đồng quê
+            [available] => 1
+            [image] => 0
+            [type] => P
+            [creator] => 
+            [created_date] => 2019-04-22 01:14:09
+            [updater] => 
+            [last_updated_date] => 2019-04-23 02:44:35
+        )
+
+)
+
+2019-04-30 09:19:21 - Error: [8], Undefined index: category_id in /Users/anit/Projects/web/anit_pos/portal/src/models/ProductPageBuilder.php on line 20, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [requester] => hoang
+                    [pageTitle] => Restaurant
+                    [isProduct] => 1
+                )
+
+        )
+
+    [productAdapter] => ProductDAO Object
+        (
+            [tableName:BaseDAO:private] => product
+            [connection:DAO:private] => 
+        )
+
+    [default_status] => 0
+    [available] => 1
+    [addCount] => 1
+    [updateStatus] => 
+)
+
+2019-04-30 09:21:24 - Error: [2], mysqli_connect(): (HY000/1049): Unknown database 'hoang' in /Users/anit/Projects/web/anit_pos/libs/php/dao/DAO.php on line 35, Variables:Array
+(
+    [args] => Array
+        (
+            [0] => hoang
+        )
+
+    [argCount] => 1
+)
+
+2019-04-30 09:23:06 - Error: [8], Undefined variable: product in /Users/anit/Projects/web/anit_pos/libs/php/dao/CategoryDAO.php on line 44, Variables:Array
+(
+    [category] => Array
+        (
+            [id] => 1
+            [name] => Món chiên
+            [type] => P
+            [description] => 321321
+            [image] => files/pos/category_12.jpg
+            [available] => 1
+        )
+
+    [requester] => hoang
+    [sql] => UPDATE category SET name='Món chiên', type='P', description='321321', available=1, image='files/pos/category_12.jpg', updater='hoang',last_updated_date=now()
+)
+
+2019-04-30 09:26:03 - Error: [8], Undefined variable: product in /Users/anit/Projects/web/anit_pos/libs/php/dao/CategoryDAO.php on line 31, Variables:Array
+(
+    [category] => Array
+        (
+            [name] => Test
+            [type] => P
+            [description] => test
+            [image] => files/pos/category_12.jpg
+            [available] => 1
+        )
+
+    [requester] => hoang
+    [sql] => INSERT INTO category (name, type, description,available, image, creator,updater) VALUES ('Test', 'P', 'test',1,'
+)
+
+2019-04-30 09:36:59 - Error: [8], Undefined variable: product in /Users/anit/Projects/web/anit_pos/portal/src/views/page_category.php on line 32, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [requester] => hoang
+                    [pageTitle] => Restaurant
+                    [isCategory] => 1
+                    [categories] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [id] => 1
+                                    [name] => Món chiên
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => files/pos/category_12.jpg
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-30 16:34:27
+                                )
+
+                            [1] => Array
+                                (
+                                    [id] => 2
+                                    [name] => Lẩu
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [2] => Array
+                                (
+                                    [id] => 3
+                                    [name] => Hải sản
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [3] => Array
+                                (
+                                    [id] => 4
+                                    [name] => Đồng quê
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [4] => Array
+                                (
+                                    [id] => 5
+                                    [name] => Bia
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [5] => Array
+                                (
+                                    [id] => 6
+                                    [name] => Nước giải khát
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [6] => Array
+                                (
+                                    [id] => 7
+                                    [name] => Rượu
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [7] => Array
+                                (
+                                    [id] => 8
+                                    [name] => Món tráng miệng
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [8] => Array
+                                (
+                                    [id] => 9
+                                    [name] => Đồ pha chế
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [9] => Array
+                                (
+                                    [id] => 10
+                                    [name] => Khác
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [10] => Array
+                                (
+                                    [id] => 11
+                                    [name] => Hải sản
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [11] => Array
+                                (
+                                    [id] => 12
+                                    [name] => Hải sản
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [12] => Array
+                                (
+                                    [id] => 13
+                                    [name] => Đồ pha chế
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [13] => Array
+                                (
+                                    [id] => 14
+                                    [name] => Hải sản 1
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [14] => Array
+                                (
+                                    [id] => 15
+                                    [name] => Hải sản
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [15] => Array
+                                (
+                                    [id] => 16
+                                    [name] => Hải sản
+                                    [description] => 
+                                    [available] => 0
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [16] => Array
+                                (
+                                    [id] => 17
+                                    [name] => Hải sản
+                                    [description] => 
+                                    [available] => 0
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [17] => Array
+                                (
+                                    [id] => 18
+                                    [name] => Hải sản
+                                    [description] => 
+                                    [available] => 0
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [18] => Array
+                                (
+                                    [id] => 19
+                                    [name] => Đồng quê
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => 0
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-22 01:14:09
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-23 02:44:35
+                                )
+
+                            [19] => Array
+                                (
+                                    [id] => 20
+                                    [name] => Test
+                                    [description] => test
+                                    [available] => 1
+                                    [image] => files/pos/category_12.jpg
+                                    [type] => P
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-30 16:26:18
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-30 16:26:18
+                                )
+
+                            [20] => Array
+                                (
+                                    [id] => 21
+                                    [name] => Test
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => files/pos/category_12.jpg
+                                    [type] => I
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-30 16:31:21
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-30 16:31:21
+                                )
+
+                            [21] => Array
+                                (
+                                    [id] => 22
+                                    [name] => Test
+                                    [description] => 
+                                    [available] => 1
+                                    [image] => files/pos/category_12.jpg
+                                    [type] => I
+                                    [creator] => hoang
+                                    [created_date] => 2019-04-30 16:31:49
+                                    [updater] => hoang
+                                    [last_updated_date] => 2019-04-30 16:31:49
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [adapter] => CategoryDAO Object
+        (
+            [tableName:BaseDAO:private] => category
+            [connection:DAO:private] => 
+        )
+
+    [category] => Array
+        (
+            [id] => 1
+            [name] => Món chiên
+            [description] => 
+            [available] => 1
+            [image] => files/pos/category_12.jpg
+            [type] => P
+            [creator] => hoang
+            [created_date] => 2019-04-22 01:14:09
+            [updater] => hoang
+            [last_updated_date] => 2019-04-30 16:34:27
+        )
+
+)
+
+2019-04-30 09:53:12 - Error: [2], Invalid argument supplied for foreach() in /Users/anit/Projects/web/anit_pos/portal/src/views/page_category.php on line 20, Variables:Array
+(
+    [resource] => PageResource Object
+        (
+            [data:PageResource:private] => Array
+                (
+                    [requester] => hoang
+                    [pageTitle] => Restaurant
+                    [isUnit] => 1
+                    [units] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [id] => 9
+                                    [name] => Chai
+                                    [description] => 
+                                    [available] => 1
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:09:58
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:51:34
+                                )
+
+                            [1] => Array
+                                (
+                                    [id] => 10
+                                    [name] => ??a
+                                    [description] => 
+                                    [available] => 1
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:09:58
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:51:34
+                                )
+
+                            [2] => Array
+                                (
+                                    [id] => 11
+                                    [name] => Tô
+                                    [description] => 
+                                    [available] => 1
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:09:58
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:51:34
+                                )
+
+                            [3] => Array
+                                (
+                                    [id] => 12
+                                    [name] => Chén
+                                    [description] => 
+                                    [available] => 1
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:09:58
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:51:34
+                                )
+
+                            [4] => Array
+                                (
+                                    [id] => 13
+                                    [name] => N?i
+                                    [description] => 
+                                    [available] => 1
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:09:58
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:51:34
+                                )
+
+                            [5] => Array
+                                (
+                                    [id] => 14
+                                    [name] => Ly
+                                    [description] => 
+                                    [available] => 1
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:09:58
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:51:34
+                                )
+
+                            [6] => Array
+                                (
+                                    [id] => 15
+                                    [name] => Gói
+                                    [description] => 
+                                    [available] => 1
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:09:58
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:51:34
+                                )
+
+                            [7] => Array
+                                (
+                                    [id] => 16
+                                    [name] => Lon
+                                    [description] => 
+                                    [available] => 1
+                                    [type] => P
+                                    [creator] => 
+                                    [created_date] => 2019-04-22 01:09:58
+                                    [updater] => 
+                                    [last_updated_date] => 2019-04-23 02:51:34
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [adapter] => UnitDAO Object
+        (
+            [tableName:BaseDAO:private] => `unit`
+            [connection:DAO:private] => 
+        )
+
+)
+

@@ -17,7 +17,7 @@
 				$resource->tables=array();
 			}
 			$adapter=new CategoryDAO();
-			$resource->categories=$adapter->getCategories(true);
+			$resource->categories=$adapter->getCategories('P',true);
 			if(!empty($resource->categories)){
 				$adapter=new ProductDAO();
 				$resource->cateId=$resource->categories[0]['id'];
