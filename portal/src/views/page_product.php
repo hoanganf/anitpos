@@ -19,10 +19,6 @@
           <th>Ma</th>
           <th>Anh</th>
           <th>Ten[<?php echo count($resource->products); ?>]</th>
-          <th>Gia (VND)</th>
-          <th>Tinh trang</th>
-          <th>Che bien</th>
-          <th>SL/Goi mon</th>
           <th>Tao ngay</th>
 					<th>Sua ngay</th>
         </tr>
@@ -40,10 +36,6 @@
             <?php } ?>
             </div>
           </td>
-          <td class="white-space--nowrap text-align--right"><span class="rounded background-color--yellow padding"><?php echo number_format($product['price']);?></span></td>
-          <td class="text-align--center"><span class="circle background-color--<?php echo $product['available']==0 ? 'red':'green';?>"/></td>
-          <td class="text-align--center"><span class="circle background-color--<?php echo $product['default_status']==0 ? 'red':'green';?>"></td>
-          <td class="text-align--center"><?php echo $product['add_count'];?></td>
           <td>
 						<div class="rounded background-color--blue padding"><?php echo $category['creator'];?><br/><?php echo $category['created_date']; ?></div>
 	        </td>
@@ -76,11 +68,6 @@
   	    <label for="name" class="display--block margin">Ten san pham</label>
   	    <input type="text" name="name" class="rounded border--gray" placeholder="Ten san pham" required>
 
-  			<label for="price" class="display--block margin">Gia</label>
-  			<input type="text" name="price" class="rounded border--gray" placeholder="Gia" required>
-  			<label for="add_count" class="display--block margin">So luong</label>
-  			<input type="number" class="rounded border--gray" name="add_count" placeholder="So luong" required>
-
   			<label for="description" class="display--block margin">Mo ta</label>
   	    <textarea name="description" class="rounded border--gray width--full resize--vertical" placeholder="Mo ta ve san pham"></textarea>
 
@@ -102,22 +89,6 @@
                 <option value="<?php echo $unit['id']; ?>"><?php echo $unit['name']; ?></option>
               <?php } ?>
         			</select>
-            </div>
-          </div>
-          <div class="row-divide">
-            <div class="row-divide__col-50">
-              <label class="display--block margin white-space--nowrap" for="available">Con/Het</label>
-              <label class="toggle-switch">
-                <input type="checkbox" name="available" value="1">
-                <span class="toggle-switch__slider"></span>
-              </label>
-            </div>
-            <div class="row-divide__col-50">
-              <label class="display--block margin white-space--nowrap" for="default_status">Che bien/Khong</label>
-              <label class="toggle-switch" >
-                <input type="checkbox" name="default_status" value="1">
-                <span class="toggle-switch__slider"></span>
-              </label>
             </div>
           </div>
           <div class="display--block margin">

@@ -4,11 +4,8 @@
 		public function buildHtml($resource){
 			$productAdapter=new ProductDAO();
 			if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-				$default_status=isset($_POST['default_status']) ? $_POST['default_status'] : 0;
-		    $available=isset($_POST['available']) ? $_POST['available'] : 0;
-				$addCount=isset($_POST['add_count']) ? $_POST['add_count'] : 1;
 				if($_POST['action'] === 'add'){
-					$addProduct=array('name'=>$_POST['name'],'category_id'=>$_POST['category_id'],'unit_id'=>$_POST['unit_id'],'price'=>$_POST['price'],'description'=>$_POST['description'],'image'=>$_POST['image'],'default_status'=>$default_status,'available'=>$available,'add_count'=>$addCount) ;
+					$addProduct=array('name'=>$_POST['name'],'category_id'=>$_POST['category_id'],'unit_id'=>$_POST['unit_id'],'description'=>$_POST['description'],'image'=>$_POST['image']) ;
 					$insertedID=$productAdapter->create($addProduct,$resource->requester);
 					//TODO change the version of table
 					if($insertedID>0) $resource->message='Them mon thanh cong voi ma la: '.$insertedID;
@@ -17,7 +14,7 @@
 					//do edit here
 					$updateStatus=false;
 					if(isset($_POST['id']) && is_numeric($_POST['id'])){
-						$editProduct=array('id'=>$_POST['id'],'name'=>$_POST['name'],'category_id'=>$_POST['category_id'],'unit_id'=>$_POST['unit_id'],'price'=>$_POST['price'],'description'=>$_POST['description'],'image'=>$_POST['image'],'default_status'=>$default_status,'available'=>$available,'add_count'=>$addCount) ;
+						$editProduct=array('id'=>$_POST['id'],'name'=>$_POST['name'],'category_id'=>$_POST['category_id'],'unit_id'=>$_POST['unit_id'],'description'=>$_POST['description'],'image'=>$_POST['image']) ;
 						$updateStatus=$productAdapter->edit($editProduct,$resource->requester);
 						//TODO change the version of table
 					}
